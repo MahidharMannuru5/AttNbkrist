@@ -8,7 +8,7 @@ export default function Attendance() {
   const [post, setPost] = useState();
   const [error, setError] = useState();
   const attendance=()=>{
-    axios.get(`https://202.91.76.90:94/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+    axios.get(`http://202.91.76.90:94/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
       if(data) {
           setPost(response.data);
