@@ -8,7 +8,7 @@ export default function Attendance() {
   const [post, setPost] = useState();
   const [error, setError] = useState();
   const attendance=()=>{
-    axios.get(`http://202.91.76.90:94/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+    axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
       if(data) {
           setPost(response.data);
@@ -26,6 +26,7 @@ export default function Attendance() {
 
   return (
     <>
+
     <div className="container-fluid">
     <h3>NBKRIST Attendance</h3><h3>{rollno}</h3>
       </div>
@@ -46,6 +47,7 @@ export default function Attendance() {
 <br></br>
 {post?.percent && <h3>Percentage:{post.percent}</h3>}
    {error?.percent && <h1>{error.percent}</h1>}
+   <h3>Under Maintainence</h3>
     </div>
     </>
   );
