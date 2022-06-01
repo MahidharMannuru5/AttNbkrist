@@ -48,7 +48,7 @@ export default function Attendance() {
 {post?.percent &&<h3>Your Percentage:{post.percent}</h3>}
    {error?.percent && <h1>{error.percent}</h1>}
     </div>
-    <h3>We working Now</h3>
+    <h3>We are working Now</h3>
     </>
   );
   
