@@ -45,10 +45,10 @@ export default function Attendance() {
 <button class="btn btn-primary" onClick={attendance}>Submit</button>
 </div>
 <br></br>
-{post?.percent && <h3>Percentage:{post.percent}</h3>}
+{post?.percent &&<h3>Your Percentage:{post.percent}</h3>}
    {error?.percent && <h1>{error.percent}</h1>}
-   <h3>Under Maintainence</h3>
     </div>
+    <h3>We working Now</h3>
     </>
   );
   
