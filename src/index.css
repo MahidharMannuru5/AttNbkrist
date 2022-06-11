@@ -14,13 +14,13 @@ code {
 
 
 .container-fluid{
-  background-color: coral;
+  background-color:rgb(77, 186, 230);
   margin:0 auto;
   padding:15px;
   color:white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .btn.btn-primary{
-  background-color: coral;
+  background-color:rgb(77, 186, 230);
   color:white;
 }

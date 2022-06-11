@@ -28,7 +28,7 @@ export default function Attendance() {
     <>
 
     <div className="container-fluid">
-    <h3>NBKRIST Attendance</h3><h3>{rollno}</h3>
+    <h3>NBKRIST Attendance</h3>
       </div>
       <br/>
     <div className="container1">
@@ -36,8 +36,8 @@ export default function Attendance() {
         RollNo:
       </label>
       
-<input type="text" required size={10} placeholder="lowercase" onChange={(event)=>{
-  setrollno(event.target.value);
+<input type="text" required size={10}  onChange={(event)=>{
+  setrollno(event.target.value.toLowerCase());
 }} /> 
 <div>
   <br>
@@ -45,10 +45,13 @@ export default function Attendance() {
 <button class="btn btn-primary" onClick={attendance}>Submit</button>
 </div>
 <br></br>
-{post?.percent &&<h3>Your Percentage:{post.percent}</h3>}
+
+
+{post?.percent &&<h3> Your Percentage:{post.percent}</h3>}
    {error?.percent && <h1>{error.percent}</h1>}
     </div>
-    <h3>We are working Now</h3>
+    <div className="help">
+    </div>
     </>
   );
   
