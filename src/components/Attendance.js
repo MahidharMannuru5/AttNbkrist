@@ -48,10 +48,19 @@ export default function Attendance() {
 
 
 {post?.percent &&<h3> Your Percentage:{post.percent}</h3>}
-   {error?.percent && <h1>{error.percent}</h1>}
+   {error?.percent && <h1>{error.percent} <br>
+   </br>Your classesInfo: {post.percent_breakup}</h1>
+   }
+   
     </div>
     <div className="help">
+    
     </div>
+    <div>
+      <h4>
+        Designed by <a href="https://www.instagram.com/greeeshhhuuu/?igshid=YmMyMTA2M2Y%3D">Greeshma</a>
+        </h4>
+      </div>
     </>
   );
   
