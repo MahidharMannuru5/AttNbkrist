@@ -69,11 +69,7 @@ export default function Attendance() {
     <div className="help">
     
     </div>
-    <div>
-      <h4>
-        Designed by <a href="https://www.instagram.com/greeeshhhuuu/?igshid=YmMyMTA2M2Y%3D">Greeshma</a>
-        </h4>
-      </div>
+    
     </>
   );
   
