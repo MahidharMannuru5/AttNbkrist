@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import  { useState } from 'react';
+import  { useState ,useEffect} from 'react';
 
 
 export default function Attendance() {
@@ -8,6 +8,23 @@ export default function Attendance() {
   const[rollno,setrollno]=useState(result);
   const [post, setPost] = useState();
   const [error, setError] = useState();
+  useEffect(() => {
+    localStorage.getItem("rollno");
+   },[rollno]);
+ useEffect(()=>{
+   axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+     const { data } = response
+     if(data) {
+         setPost(response.data);
+     
+      } else {
+         setError("NO data found")
+     }
+ 
+   }).catch(error=>{
+     setPost({"percent":"No data found"}.data)
+   })
+ })
   const attendance=()=>{
     axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
@@ -29,7 +46,7 @@ export default function Attendance() {
     <>
 
     <div className="container-fluid">
-    <h3>NBKRIST Attendance</h3>
+    <h3>NBKRIST Attendance</h3><h3>{rollno}</h3>
       </div>
       <br/>
     <div className="container1">
