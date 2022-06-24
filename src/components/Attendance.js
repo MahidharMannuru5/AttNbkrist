@@ -4,7 +4,8 @@ import  { useState } from 'react';
 
 
 export default function Attendance() {
-  const[rollno,setrollno]=useState("");
+  const result=localStorage.getItem('rollno');
+  const[rollno,setrollno]=useState(result);
   const [post, setPost] = useState();
   const [error, setError] = useState();
   const attendance=()=>{
@@ -36,12 +37,24 @@ export default function Attendance() {
         RollNo:
       </label>
       
-<input type="text" required size={10}  onChange={(event)=>{
+<input type="text" required size={10} value={rollno} onChange={(event)=>{
   setrollno(event.target.value.toLowerCase());
 }} /> 
 <div>
   <br>
   </br>
+  <div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);
+
+          }}>
+
+  <input
+            type="checkbox"
+           
+            name="tripType"
+           
+          />Remember Me
+          </div>
+         
 <button class="btn btn-primary" onClick={attendance}>Submit</button>
 </div>
 <br></br>

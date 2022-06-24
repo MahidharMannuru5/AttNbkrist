@@ -13,6 +13,9 @@ a{
 input{
   border-radius: 15px 15px 15px 15px;
 }
+button{
+  margin:10px;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
