@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import "default.css";
+
+
+ul.dropdown li a {
+ display: block;
+ padding: 12px 24px 8px 24px;
+ font-weight:bold;
+
+}
+
+
+/* ------------- Override default */
+
+	ul.dropdown li {
+	 padding: 0;
+	}
+
+
+/* ------------- Reinitiate default: post-override activities  */
+
+	ul.dropdown li.dir {
+	 padding: 9px 20px 5px 14px;
+	}
+
+	ul.dropdown ul li.dir {
+	 padding-right: 15px;
+	}
+
+
+/* ------------- Custom */
+
+	ul.dropdown li {
+
+	}
+
+	ul.dropdown ul a {
+	 padding: 4px 5px 4px 14px;
+	 width: 151px; /* Especially for IE */
+	}
+
+	ul.dropdown ul a:hover {
+	   color : #000;
+	}
+
+	ul.dropdown a.open {
+	 color: #fff;
+	}
+
+	ul.dropdown ul a.open {
+	 color: #fff;
+	}
+
+
+	/* CSS 2.1 */
+
+	ul.dropdown li:hover > a.dir {
+	 color: #000;
+	}
+
+	ul.dropdown ul li:hover > a.dir {
+	 color: #fff;
+	}
