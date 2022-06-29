@@ -14,9 +14,6 @@ input{
   border-radius: 15px 15px 15px 15px;
 }
 
-.counter{
-  display:none;
-
 button{
   margin:10px;
 }
