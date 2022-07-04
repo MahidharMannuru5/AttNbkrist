@@ -1,7 +1,7 @@
 import './App.css';
 import Attendance from './Pages/Attendance';
 import MidMarks from './Pages/MidMarks';
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
+import {HashRouter as Router,Routes,Route} from "react-router-dom"
 
 function App() {
   return (
