@@ -16,11 +16,12 @@ function App() {
       <br/>
     </div>
 
-      
+      <Router>
         <Routes>
         <Route path="/" element={<Attendance/>}/>
         <Route path="MidMarks" element={<MidMarks/>}/>
         </Routes>
+        </Router>
       
       </>
   );
