@@ -1,13 +1,28 @@
 import './App.css';
-import Attendance from './components/Attendance';
+import Attendance from './Pages/Attendance';
+import MidMarks from './Pages/MidMarks';
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 
 function App() {
   return (
+    <>
     <div className="App">
-      <>
-      <Attendance/>
-      </>
+    
+    <div className="container-fluid">
+      <a href="/">Attendance</a>
+      <a href="MidMarks">MidMarks</a>
+      
+      </div>
+      <br/>
     </div>
+
+      <Router>
+        <Routes>
+        <Route path="/" element={<Attendance/>}/>
+        <Route path="MidMarks" element={<MidMarks/>}/>
+        </Routes>
+      </Router>
+      </>
   );
 }
 

@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import React from "react";
 import  { useState ,useEffect} from 'react';
@@ -45,10 +46,7 @@ export default function Attendance() {
   return (
     <>
 
-    <div className="container-fluid">
-    <h3>NBKRIST Attendance</h3><h3>{rollno}</h3>
-      </div>
-      <br/>
+   <div className='App'>
     <div className="container1">
       
       <label>
@@ -89,6 +87,7 @@ export default function Attendance() {
 <img className="counter"src="https://hitwebcounter.com/counter/counter.php?page=8007496&style=0036&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                    
                                     
     
+    </div>
     </div>
     
     </>
