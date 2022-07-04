@@ -1,7 +1,7 @@
 import './App.css';
 import Attendance from './Pages/Attendance';
 import MidMarks from './Pages/MidMarks';
-import {HashRouter as Router,Routes,Route} from "react-router-dom"
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 
 function App() {
   return (
@@ -21,8 +21,7 @@ function App() {
         <Route path="/" element={<Attendance/>}/>
         <Route path="MidMarks" element={<MidMarks/>}/>
         </Routes>
-        </Router>
-      
+      </Router>
       </>
   );
 }

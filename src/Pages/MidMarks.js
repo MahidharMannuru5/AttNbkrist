@@ -12,7 +12,7 @@ export default function MidMarks() {
   const marked = () => {
     axios
       .get(
-        `https://=${rollno}`
+        `https=${rollno}`
       )
       .then((response) => {
         setmarks(response.data);
