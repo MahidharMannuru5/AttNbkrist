@@ -12,7 +12,7 @@ export default function MidMarks() {
   const marked = () => {
     axios
       .get(
-        `https://=${rollno}`
+        `https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`
       )
       .then((response) => {
         setmarks(response.data);
@@ -49,9 +49,8 @@ export default function MidMarks() {
 </div>
 <br/>
 <br/>
-
 <div className="container">
-      <Table striped bordered  variant="primary">
+      <Table striped bordered hover variant="primary">
 
       {Object.entries(marks).map(([key, value]) => (
       
@@ -71,13 +70,11 @@ export default function MidMarks() {
           
                    </tr>
                    </tbody>
-                   
      
       ))}
 
 </Table>
 </div>
-
 
     </div>
   );
