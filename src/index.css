@@ -9,6 +9,9 @@ body {
 .fk{
   color:black;
 }
+Link{
+  color:black;
+}
 a{
   text-decoration: none!important;
   font-size: 25px;

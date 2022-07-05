@@ -1,7 +1,7 @@
 import './App.css';
 import Attendance from './Pages/Attendance';
 import MidMarks from './Pages/MidMarks';
-import {HashRouter as Router,Routes,Route,Link} from "react-router-dom"
+import {Routes,Route,Link} from "react-router-dom"
 
 function App() {
   return (
@@ -9,14 +9,20 @@ function App() {
     <div className="App">
 
     <div className="container-fluid">
-      <a href="/">Attendance</a>
-      <a href="/#/MidMarks">MidMarks</a>
+    <nav>
+          <Link to="/">Attendance</Link>
+        <Link to="/MidMarks">MidMarks</Link>
+      </nav>
       
       </div>
       <br/>
 
     
     </div>
+<div className='checking'>
+
+
+</div>
       
         <Routes>
         <Route path="/" element={<Attendance/>}/>
