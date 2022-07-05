@@ -12,7 +12,7 @@ export default function MidMarks() {
   const marked = () => {
     axios
       .get(
-        `https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`
+        ``
       )
       .then((response) => {
         setmarks(response.data);
