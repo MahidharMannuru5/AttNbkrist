@@ -10,7 +10,7 @@ function App() {
     
     <div className="container-fluid">
       <a href="/">Attendance</a>
-      <a href="MidMarks">MidMarks</a>
+      <a href="/#/MidMarks">MidMarks</a>
       
       </div>
       <br/>
