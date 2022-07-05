@@ -11,7 +11,7 @@ function App() {
     <div className="container-fluid">
     <nav>
           <Link to="/">Attendance</Link>
-        <Link to="/MidMarks">MidMarks</Link>
+          <Link to="/MidMarks">MidMarks</Link>
       </nav>
       
       </div>
