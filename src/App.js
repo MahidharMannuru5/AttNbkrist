@@ -10,18 +10,17 @@ function App() {
     
     <div className="container-fluid">
       <a href="/">Attendance</a>
-      <a href="MidMarks">MidMarks</a>
       
       </div>
       <br/>
     </div>
 
-      <Router>
+ 
         <Routes>
         <Route path="/" element={<Attendance/>}/>
-        <Route path="MidMarks" element={<MidMarks/>}/>
+        <Route path="/#/MidMarks" element={<MidMarks/>}/>
         </Routes>
-      </Router>
+    
       </>
   );
 }
