@@ -47,7 +47,10 @@ export default function Attendance() {
     <>
 
    <div className='App'>
-    <div className="container1">
+     <div class="container" id="new">
+
+     </div>
+    <div class="container">
       
       <label>
         RollNo:
