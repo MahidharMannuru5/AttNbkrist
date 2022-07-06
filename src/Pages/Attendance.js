@@ -70,8 +70,10 @@ export default function Attendance() {
            
           />Remember Me
           </div>
+    <div class="btn">
          
 <button class="btn btn-primary" onClick={attendance}>Submit</button>
+</div>
 </div>
 <br></br>
 

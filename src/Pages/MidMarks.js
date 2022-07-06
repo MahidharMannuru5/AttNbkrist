@@ -21,7 +21,7 @@ export default function MidMarks() {
 
   return (
 
-      
+      <>
     <div className="App">
         <div className="container1">
       
@@ -33,6 +33,8 @@ export default function MidMarks() {
   setrollno(event.target.value.toLowerCase());
 }} /> 
 </div>
+<br>
+  </br>
 <div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);
 
 }}>
@@ -51,8 +53,22 @@ export default function MidMarks() {
 <br/>
 <div className="container">
       <Table striped bordered hover variant="primary">
+      <thead>
+          <tr>
+            <th>
+            {rollno}
+            </th>
+            <th>
+             MID 1
+            </th>
+          <th>
+            MID 2
+          </th>
+          </tr>
+        </thead>
 
       {Object.entries(marks).map(([key, value]) => (
+       
       
             <tbody>
           <tr>
@@ -77,5 +93,6 @@ export default function MidMarks() {
 </div>
 
     </div>
+    </>
   );
 }
