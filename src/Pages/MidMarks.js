@@ -1,18 +1,38 @@
 import "../index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  useState } from "react";
+import {  useState ,useEffect} from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 
 const keys_to_render = ["mid1", "mid2"];
 export default function MidMarks() {
-    const result=localStorage.getItem('rollno');
+  const result=localStorage.getItem('rollno');
   const[rollno,setrollno]=useState(result);
   const [marks, setmarks] = useState({});
+  const [post, setPost] = useState();
+  const [error, setError] = useState();
+  useEffect(() => {
+    localStorage.getItem("rollno");
+   },[rollno]);
+   useEffect(()=>{
+    axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+      const { data } = response
+      if(data) {
+          setPost(response.data);
+      
+       } else {
+          setError("NO data found")
+      }
+  
+    }).catch(error=>{
+      setPost({"percent":"No data found"}.data)
+    })
+  })
   const marked = () => {
+    setmarks({});
     axios
       .get(
-        ``
+        `https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`
       )
       .then((response) => {
         setmarks(response.data);
@@ -56,7 +76,7 @@ export default function MidMarks() {
       <thead>
           <tr>
             <th>
-            {rollno}
+           Subject
             </th>
             <th>
              MID 1
@@ -78,7 +98,7 @@ export default function MidMarks() {
             .map(([key, value]) => {
               return (
                 <td key={key}>
-                  {key}: {value}
+                   {value}
                 </td>
          
               );
@@ -92,6 +112,9 @@ export default function MidMarks() {
 </Table>
 </div>
 
+    </div>
+    <div className='footer'>
+      <h3>Trust The Process,Time has a Reply</h3>
     </div>
     </>
   );

@@ -8,7 +8,7 @@ function App() {
     <>
     <div className="App">
 
-    <div className="container-fluid">
+    <div className="container-fluid new">
     <nav>
           <Link to="/">Attendance</Link>
           <Link to="/MidMarks">MidMarks</Link>

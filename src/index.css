@@ -6,9 +6,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.footer{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
 .fk{
   color:black;
 }
+
 Link{
   color:black;
 }
@@ -29,6 +34,9 @@ input{
 }
 button{
   margin:15px;
+}
+.container-fluid{
+  background-color: rgb(11, 157, 167)!important;
 }
 
 code {

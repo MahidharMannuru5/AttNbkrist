@@ -47,9 +47,8 @@ export default function Attendance() {
     <>
 
    <div className='App'>
-     <div class="container" id="new">
+  
 
-     </div>
     <div class="container">
       
       <label>
@@ -93,6 +92,9 @@ export default function Attendance() {
                                     
     
     </div>
+    </div>
+    <div className='footer'>
+      <h3>Trust The Process,Time has a Reply</h3>
     </div>
     
     </>
