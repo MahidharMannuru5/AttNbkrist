@@ -56,3 +56,8 @@ code {
   background-color:rgb(77, 186, 230);
   color:white;
 }
+img{
+  max-width:100%;
+  height: auto;
+  
+}
