@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useState ,useEffect} from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
-
+import mid from "../images/mid.jpeg";
 const keys_to_render = ["mid1", "mid2"];
 export default function MidMarks() {
   const result=localStorage.getItem('rollno');
@@ -43,6 +43,12 @@ export default function MidMarks() {
 
       <>
     <div className="App">
+  
+     
+     <div className="friend">
+       <img src={mid}alt="" />
+     </div>
+   <br/>
         <div className="container1">
       
       <label>

@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import React from "react";
+import attendace from "../images/attendance.jpeg"
 import  { useState ,useEffect} from 'react';
 
 
@@ -47,8 +49,12 @@ export default function Attendance() {
     <>
 
    <div className='App'>
-  
-
+     
+  <div className="friend">
+    <img src={attendace}alt="" />
+  </div>
+<br/>
+<br/>
     <div class="container">
       
       <label>
