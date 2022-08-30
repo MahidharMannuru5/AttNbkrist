@@ -1,12 +1,16 @@
 # Getting Started with NBKRIST Attendance App
 Apis used:
+Attendance Api:
 
+
+MidMarks Api:
 https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=RollNo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 How to use the website?
 Click the following URL:
+https://mahidharmannuru5.github.io/Attendance/#/
 
 Enter your rollNo:
 For the MidMarks,
