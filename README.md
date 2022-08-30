@@ -1,7 +1,8 @@
 # Getting Started with NBKRIST Attendance App
 Apis used:
-Attendance Api:
 
+Attendance Api:
+https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=rollno
 
 MidMarks Api:
 https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=RollNo
