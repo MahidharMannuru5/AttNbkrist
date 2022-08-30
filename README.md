@@ -1,5 +1,7 @@
 # Getting Started with NBKRIST Attendance App
-https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=20kb1a0581
+Apis used:
+
+https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=RollNo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
