@@ -45,9 +45,7 @@ export default function MidMarks() {
     <div className="App">
   
      
-     <div className="friend">
-       <img src={mid}alt="" />
-     </div>
+    
    <br/>
         <div className="container1">
       

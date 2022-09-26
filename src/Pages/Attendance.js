@@ -51,9 +51,7 @@ export default function Attendance() {
 
    <div className='App'>
      
-  <div className="friend">
-    <img clas="img-responsive" src={attendace}alt="" />
-  </div>
+  
 <br/>
 <br/>
     <div class="container">
