@@ -1,7 +1,25 @@
-# Getting Started with Create React App
-https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=20kb1a0581
+# Getting Started with NBKRIST Attendance App
+Apis used:
 
+Attendance Api:
+https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=rollno
+
+MidMarks Api:
+https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=rollno
+https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=rollno
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+How to use the website?
+Click the following URL:
+https://mahidharmannuru5.github.io/Attendance/#/
+
+Enter your rollNo:Ex:19kb1a0581
+For the MidMarks,
+Click MidMarks in the navigation bar 
+Enter your rollNo:Ex:19kb1a0581
+Click submit
+
+
 
 ## Available Scripts
 
