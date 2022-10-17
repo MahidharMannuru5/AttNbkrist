@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import React from "react";
 import attendace from "../images/attendance.jpeg"
+import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/esm/Table';
 import  { useState ,useEffect} from 'react';
 
 
@@ -15,20 +17,7 @@ export default function Attendance() {
   useEffect(() => {
     localStorage.getItem("rollno");
    },[rollno]);
- useEffect(()=>{
-   axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
-     const { data } = response
-     if(data) {
-         setPost(response.data);
-     
-      } else {
-         setError("NO data found")
-     }
- 
-   }).catch(error=>{
-     setPost({"percent":"No data found"}.data)
-   })
- })
+   
   const attendance=()=>{
     axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
@@ -50,46 +39,71 @@ export default function Attendance() {
     <>
 
    <div className='App'>
-     
-  
-<br/>
-<br/>
     <div class="container">
-      
-      <label>
+    <Card border="primary" style={{ width: '30rem' }}>
+        <Card.Header><label>
         RollNo:
       </label>
       
 <input type="text" required size={10} value={rollno} onChange={(event)=>{
   setrollno(event.target.value.toLowerCase());
-}} /> 
-<div>
-  <br>
-  </br>
-  <div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);
+}} />
+</Card.Header>
 
-          }}>
+<Card.Body>
+<Card.Title><div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);}}>
 
-  <input
-            type="checkbox"
+<input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
+          <Card.Text>
+          <button class="btn btn-primary" onClick={attendance}>Submit</button>
+        <div class="percentage">
+          <Card border="info" style={{ width: '24rem' }}>
+        <Card.Header>Percentage:{post && post.percent}</Card.Header>
+            </Card>
+            </div>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <br />       
+      <Card border="primary" style={{ width: '30rem' }}>
+        <Card.Header>RollNo:{rollno}</Card.Header>
+        <Card.Body>
+          <Card.Text>
+          <Table striped bordered hover variant="primary">
+      <thead>
+          <tr>
+            <th>
+           Subject
+            </th>
+            <th>
+             Classes
+            </th>
+            </tr>
+            </thead>
            
-            name="tripType"
-           
-          />Remember Me
-          </div>
-    <div class="btn">
-         
-<button class="btn btn-primary" onClick={attendance}>Submit</button>
-</div>
-</div>
-<br></br>
+            
+          
+               {post && Object.entries(post).map(([key,value])=>{
+                return(
+                    <>
+                     <tbody>
+                      <tr>
+                  <td key={key}>{key}</td>
+                  <td key={key}>{value}</td>
+                 
+                  </tr>
+                  </tbody>
+                  </>
+                );
+              })}
+       
+    
 
-
-{post?.percent &&<h3> Your Percentage:{post.percent}</h3>}
-   {error?.percent && <h1>{error.percent} <br>
-   </br>Your classesInfo: {post.percent_breakup}</h1>
-   }
-   
+            </Table>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <br />
     </div>
     <div className="help">
     <a href="https://www.hitwebcounter.com">
