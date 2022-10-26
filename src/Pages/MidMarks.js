@@ -38,7 +38,7 @@ export default function MidMarks() {
       <>
     <div className="App"> 
         <div className="container">
-        <Card border="primary" style={{ width: '30rem' }}>
+        <Card border="primary" style={{ width: '16rem' }}>
         <Card.Header><label>
         RollNo:
       </label>
@@ -63,7 +63,7 @@ export default function MidMarks() {
        </div>
 
 <div className="container">
-<Card border="primary" style={{ width: '30rem' }}>
+<Card border="primary" style={{ width: '16rem' }}>
         <Card.Header>RollNo:{rollno}</Card.Header>
         <Card.Body>
           <Card.Text>

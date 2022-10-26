@@ -40,7 +40,7 @@ export default function Attendance() {
 
    <div className='App'>
     <div class="container">
-    <Card border="primary" style={{ width: '30rem' }}>
+    <Card border="primary" style={{ width: '16rem' }}>
         <Card.Header><label>
         RollNo:
       </label>
@@ -57,7 +57,7 @@ export default function Attendance() {
           <Card.Text>
           <button class="btn btn-primary" onClick={attendance}>Submit</button>
         <div class="percentage">
-          <Card border="info" style={{ width: '24rem' }}>
+          <Card border="info" style={{ width: '16rem' }}>
         <Card.Header>Percentage:{post && post.percent}</Card.Header>
             </Card>
             </div>
@@ -65,7 +65,7 @@ export default function Attendance() {
         </Card.Body>
       </Card>
       <br />       
-      <Card border="primary" style={{ width: '30rem' }}>
+      <Card border="primary" style={{ width: '16rem' }}>
         <Card.Header>RollNo:{rollno}</Card.Header>
         <Card.Body>
           <Card.Text>
