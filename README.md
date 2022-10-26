@@ -4,16 +4,22 @@ Apis used:
 Attendance Api:
 https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=rollno
 
-MidMarks Api:
+All MidMarks Api:
 https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=rollno
+
+
+Semester wise Api:(This is used on site ,this only works when semester starts so tackle this we have created all Mid marks APIs ,so you can expect working feature in the website,you can check the marks using above)
+
 https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=rollno
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 How to use the website?
 Click the following URL:
 https://mahidharmannuru5.github.io/Attendance/#/
 
-Enter your rollNo:Ex:19kb1a0581
+Enter your rollNo:Ex:19kb1a05b9,20kb1a05b9
 For the MidMarks,
 Click MidMarks in the navigation bar 
 Enter your rollNo:Ex:19kb1a0581
