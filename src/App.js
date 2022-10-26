@@ -28,8 +28,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Attendance/>}/>
         <Route path="/MidMarks" element={<MidMarks/>}/>
-        <Route path="/Signin" element={<Signin/>}/>
-        <Route path="/SignUp" element={<SignUp/>}/>
+
 
         </Routes>
     
