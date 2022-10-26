@@ -1,119 +1,99 @@
-import "../index.css";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useState ,useEffect} from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import mid from "../images/mid.jpeg";
-const keys_to_render = ["mid1", "mid2"];
+import Card from 'react-bootstrap/Card';
+const columns = [
+  "subShortForm",
+  "mid1",
+  "mid2",
+  "lab",
+  "practical"
+];
 export default function MidMarks() {
   const result=localStorage.getItem('rollno');
   const[rollno,setrollno]=useState(result);
-  const [marks, setmarks] = useState({});
-  const [post, setPost] = useState();
-  const [error, setError] = useState();
+  const [marks, setmarks] = useState([]);
+
   useEffect(() => {
     localStorage.getItem("rollno");
    },[rollno]);
-   useEffect(()=>{
-    axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
-      const { data } = response
-      if(data) {
-          setPost(response.data);
-      
-       } else {
-          setError("NO data found")
-      }
-  
-    }).catch(error=>{
-      setPost({"percent":"No data found"}.data)
-    })
-  })
+
   const marked = () => {
-    setmarks({});
+    setmarks([])
     axios
       .get(
-        `https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=${rollno}`
+        `https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=${rollno}`
       )
       .then((response) => {
         setmarks(response.data);
-      });
+      })
+      
   };
 
   return (
 
       <>
-    <div className="App">
-  
-     
-    
-   <br/>
-        <div className="container1">
-      
-      <label>
+    <div className="App"> 
+        <div className="container">
+        <Card border="primary" style={{ width: '30rem' }}>
+        <Card.Header><label>
         RollNo:
       </label>
-     
+      
 <input type="text" required size={10} value={rollno} onChange={(event)=>{
   setrollno(event.target.value.toLowerCase());
-}} /> 
-</div>
-<br>
-  </br>
-<div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);
+}} />
+</Card.Header>
 
-}}>
+<Card.Body>
+<Card.Title><div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);}}>
 
-<input
-  type="checkbox"
- 
-  name="tripType"
- 
-/>Remember Me
-</div>
-<div className="btn">
-<button class="btn btn-primary" onClick={marked}>Marks</button>
-</div>
-<br/>
-<br/>
-<div className="container">
-      <Table striped bordered hover variant="primary">
-      <thead>
-          <tr>
-            <th>
-           Subject
-            </th>
-            <th>
-             MID 1
-            </th>
-          <th>
-            MID 2
-          </th>
-          </tr>
-        </thead>
+<input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
+          <Card.Text>
+          <button class="btn btn-primary" onClick={marked}>MidMarks</button>
 
-      {Object.entries(marks).map(([key, value]) => (
-       
-      
-            <tbody>
-          <tr>
-          <td key={key} >{key}</td>
-          {Object.entries(value)
-            .filter(([k]) => keys_to_render.includes(k))
-            .map(([key, value]) => {
-              return (
-                <td key={key}>
-                   {value}
-                </td>
-         
-              );
-            })}
-          
-                   </tr>
-                   </tbody>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <br />       
      
-      ))}
+       </div>
 
-</Table>
+<div className="container">
+<Card border="primary" style={{ width: '30rem' }}>
+        <Card.Header>RollNo:{rollno}</Card.Header>
+        <Card.Body>
+          <Card.Text>
+          <Table striped bordered hover variant="primary">
+      <thead>
+          <tr>           
+            {columns.map((col) => (
+              <th key={col}>{col}</th>
+            ))}
+            </tr>
+            </thead>
+                       {marks &&
+            marks.map((row, i) => (
+              <tbody>
+              <tr>
+                {columns.map((col) => (
+                  <td key={`${col}-${i}`}>{row[col]}</td>
+                ))}
+              </tr>
+              </tbody>
+            ))}
+              
+               
+               
+            
+
+            </Table>
+          </Card.Text>
+        </Card.Body>
+      </Card>
 </div>
 
     </div>

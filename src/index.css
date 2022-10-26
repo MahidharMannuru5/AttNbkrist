@@ -32,13 +32,21 @@ input{
 .counter{
   display: none;
 }
+.percentage{
+  margin:10px;
+  padding:5px;
+  align-items: center;
+}
 button{
   margin:15px;
 }
 .container-fluid{
   background-color: rgb(11, 157, 167)!important;
 }
-
+.contiainer{
+  display:flex;
+  align-items: baseline;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
