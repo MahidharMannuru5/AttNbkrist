@@ -1,6 +1,9 @@
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import React from "react";
 import attendace from "../images/attendance.jpeg"
@@ -29,7 +32,7 @@ export default function Attendance() {
       }
 
     }).catch(error=>{
-      setPost({"percent":"No data found"}.data)
+      console.log(error)
     })
   }
  
@@ -40,7 +43,11 @@ export default function Attendance() {
 
    <div className='App'>
     <div class="container">
-    <Card border="primary" style={{ width: '20rem' }}>
+<Container>
+  <Row>
+  <Col xs={4}>
+    <Card border="primary" style={{ width: '18rem' }}>
+  
         <Card.Header><label>
         RollNo:
       </label>
@@ -48,7 +55,9 @@ export default function Attendance() {
 <input type="text" required size={10} value={rollno} onChange={(event)=>{
   setrollno(event.target.value.toLowerCase());
 }} />
+
 </Card.Header>
+
 
 <Card.Body>
 <Card.Title><div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);}}>
@@ -57,15 +66,20 @@ export default function Attendance() {
           <Card.Text>
           <button class="btn btn-primary" onClick={attendance}>Submit</button>
         <div class="percentage">
-          <Card border="info" style={{ width: '16rem' }}>
+          <Card border="info" style={{ width: '15rem' }}>
         <Card.Header>Percentage:{post && post.percent}</Card.Header>
             </Card>
             </div>
           </Card.Text>
         </Card.Body>
       </Card>
-      <br />       
-      <Card border="primary" style={{ width: '20rem' }}>
+      </Col>
+      <br />  
+      </Row>
+      <br/>
+      <Row>
+      <Col xs={4}  >   
+      <Card border="primary" style={{ width: '18rem' }}>
         <Card.Header>RollNo:{rollno}</Card.Header>
         <Card.Body>
           <Card.Text>
@@ -103,6 +117,9 @@ export default function Attendance() {
           </Card.Text>
         </Card.Body>
       </Card>
+      </Col>
+      </Row>
+      </Container>
       <br />
     </div>
     <div className="help">

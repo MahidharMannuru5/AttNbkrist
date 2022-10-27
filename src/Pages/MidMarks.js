@@ -29,7 +29,8 @@ export default function MidMarks() {
       )
       .then((response) => {
         setmarks(response.data);
-      })
+      }).catch((error)=>
+      console.log(error))
       
   };
 

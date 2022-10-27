@@ -1,4 +1,9 @@
 # Getting Started with NBKRIST Attendance App
+
+
+Feature Update:Now you can check all semester Mid Marks and Lab Internals,
+Bugs:Currently Im trying to fix the UI/UX issues for responsive Nature ,They will be fixed real soon
+Upcoming Feature:We are working providing authentaction with respective data and Firebase FCm messages according to your flexibility
 Apis used:
 
 Attendance Api:
@@ -8,7 +13,7 @@ All MidMarks Api:
 https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=rollno
 
 
-Semester wise Api:(This is used on site ,this only works when semester starts so tackle this we have created all Mid marks APIs ,so you can expect working feature in the website,you can check the marks using above)
+
 
 https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=rollno
 
