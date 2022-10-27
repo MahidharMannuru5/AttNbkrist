@@ -1,7 +1,9 @@
-
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useState ,useEffect} from "react";
 import axios from "axios";
+import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import mid from "../images/mid.jpeg";
 import Card from 'react-bootstrap/Card';
@@ -39,7 +41,7 @@ export default function MidMarks() {
       <>
     <div className="App"> 
         <div className="container">
-        <Card border="primary" style={{ width: '22rem' }}>
+        <Card border="primary" style={{ width: '20rem' }}>
         <Card.Header><label>
         RollNo:
       </label>
@@ -64,7 +66,7 @@ export default function MidMarks() {
        </div>
 
 <div className="container">
-<Card border="primary" style={{ width: '22rem' }}>
+<Card border="primary" style={{ width: '20rem' }}>
         <Card.Header>RollNo:{rollno}</Card.Header>
         <Card.Body>
           <Table striped bordered hover variant="primary">

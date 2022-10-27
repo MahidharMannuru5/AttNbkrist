@@ -44,7 +44,7 @@ export default function Attendance() {
    <div className='App'>
     <div class="container">
 <Container>
-  <Row>
+  <Row className="justify-content-center">
   <Col xs={4}>
     <Card border="primary" style={{ width: '18rem' }}>
   
@@ -77,7 +77,7 @@ export default function Attendance() {
       <br />  
       </Row>
       <br/>
-      <Row>
+      <Row className="justify-content-center">
       <Col xs={4}  >   
       <Card border="primary" style={{ width: '18rem' }}>
         <Card.Header>RollNo:{rollno}</Card.Header>
