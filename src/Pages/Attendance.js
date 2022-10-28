@@ -84,19 +84,19 @@ export default function Attendance() {
         <Card.Body>
           <Card.Text>
           <Table striped bordered hover variant="primary">
-      <thead>
+      
           <tr>
             <th>
            Subject
             </th>
             <th>
-             Classes
+             LastUpdated
             </th>
             <th>
-              LastUpdated
+              Classes
               </th>
             </tr>
-            </thead>
+          
            
             {post && Object.entries(post).map(([name, { LastUpdatedOn, Attendance }]) => (
               
