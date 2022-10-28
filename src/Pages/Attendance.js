@@ -92,24 +92,25 @@ export default function Attendance() {
             <th>
              Classes
             </th>
+            <th>
+              LastUpdated
+              </th>
             </tr>
             </thead>
            
+            {post && Object.entries(post).map(([name, { LastUpdatedOn, Attendance }]) => (
+              
+      <tbody>
+            <tr>
+              <td>{name}</td>
+              <td>{LastUpdatedOn}</td>
+              <td>{Attendance}</td>
+            </tr>
+            </tbody>
             
+          ))}
           
-               {post && Object.entries(post).map(([key,value])=>{
-                return(
-                    <>
-                     <tbody>
-                      <tr>
-                  <td key={key}>{key}</td>
-                  <td key={key}>{value}</td>
-                 
-                  </tr>
-                  </tbody>
-                  </>
-                );
-              })}
+               
        
     
 
@@ -121,6 +122,7 @@ export default function Attendance() {
       </Row>
       </Container>
       <br />
+      
     </div>
     <div className="help">
     <a href="https://www.hitwebcounter.com">
