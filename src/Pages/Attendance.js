@@ -79,10 +79,7 @@ export default function Attendance() {
       <br/>
       <Row>
       <Col xs={4}  >   
-      <Card border="primary" style={{ width: '18rem' }}>
-        <Card.Header>RollNo:{rollno}</Card.Header>
-        <Card.Body>
-          <Card.Text>
+      
           <Table striped bordered hover variant="primary">
       
           <tr>
@@ -112,12 +109,9 @@ export default function Attendance() {
           
                
        
-    
+    </Table>
 
-            </Table>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+          
       </Col>
       </Row>
       </Container>
