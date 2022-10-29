@@ -81,7 +81,7 @@ export default function Attendance() {
       <Col xs={4}  >   
       
           <Table striped bordered hover variant="primary">
-      
+      <thead>
           <tr>
             <th>
            Subject
@@ -94,7 +94,7 @@ export default function Attendance() {
               </th>
             </tr>
           
-           
+           </thead>
             {post && Object.entries(post).map(([name, { LastUpdatedOn, Attendance }]) => (
               
       <tbody>
