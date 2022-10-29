@@ -67,7 +67,7 @@ export default function Attendance() {
           <button class="btn btn-primary" onClick={attendance}>Submit</button>
         <div class="percentage">
           <Card border="info" style={{ width: '15rem' }}>
-        <Card.Header>Percentage:{post && post.percent}</Card.Header>
+        <Card.Header>Percentage:{post && post.percent}  ({post&&post.percent_breakup})</Card.Header>
             </Card>
             </div>
           </Card.Text>
