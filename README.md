@@ -4,18 +4,6 @@
 Feature Update:Now you can check all semester Mid Marks and Lab Internals,
 Bugs:Currently Im trying to fix the UI/UX issues for responsive Nature ,They will be fixed real soon
 Upcoming Feature:We are working providing authentaction with respective data and Firebase FCm messages according to your flexibility
-Apis used:
-
-Attendance Api:
-https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=rollno
-
-All MidMarks Api:
-https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=rollno
-
-
-
-
-https://att.nbkrist.org/attendance/Apps_ren/getSubwiseMarksAsJSONGivenRollNo.php?q=rollno
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
