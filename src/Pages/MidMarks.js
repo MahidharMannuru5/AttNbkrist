@@ -66,9 +66,6 @@ export default function MidMarks() {
        </div>
 
 <div className="container">
-<Card border="primary" style={{ width: '20rem' }}>
-        <Card.Header>RollNo:{rollno}</Card.Header>
-        <Card.Body>
           <Table striped bordered hover variant="primary">
       <thead>
           <tr>           
@@ -94,8 +91,7 @@ export default function MidMarks() {
 
             </Table>
           
-        </Card.Body>
-      </Card>
+      
 </div>
 
     </div>
