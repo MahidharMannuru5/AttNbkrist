@@ -44,10 +44,8 @@ export default function Attendance() {
 
    <div className='App'>
     <div class="container">
-<Container>
-  <Row >
-  <Col xs={4}>
-    <Card border="primary" style={{ width: '18rem' }}>
+
+    <Card border="primary" style={{ minwidth: '18rem' }}>
   
         <Card.Header><label>
         RollNo:
@@ -67,19 +65,15 @@ export default function Attendance() {
           <Card.Text>
           <button class="btn btn-primary" onClick={attendance}>Submit</button>
         <div class="percentage">
-          <Card border="info" style={{ width: '15rem' }}>
+          <Card border="info" style={{ minwidth: '16rem' }}>
         <Card.Header>Percentage:{post && post.percent}  ({post&&post.percent_breakup})</Card.Header>
             </Card>
             </div>
           </Card.Text>
         </Card.Body>
       </Card>
-      </Col>
-      <br />  
-      </Row>
-      <br/>
-      <Row>
-      <Col xs={4}  >   
+      
+  <br/>
       
           <Table striped bordered hover variant="primary">
       <thead>
@@ -113,9 +107,7 @@ export default function Attendance() {
     </Table>
 
           
-      </Col>
-      </Row>
-      </Container>
+    
       <br />
       
     </div>
