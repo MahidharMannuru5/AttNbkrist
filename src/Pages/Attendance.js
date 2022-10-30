@@ -1,12 +1,6 @@
-import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
 import axios from "axios";
 import React from "react";
-import attendace from "../images/attendance.jpeg"
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/esm/Table';
 import  { useState ,useEffect} from 'react';
@@ -90,19 +84,20 @@ export default function Attendance() {
             </tr>
           
            </thead>
+           <tbody>
             {post && Object.entries(post).map(([name, { LastUpdatedOn, Attendance }]) => (
               
-      <tbody>
+    
             <tr>
               <td>{name}</td>
               <td>{LastUpdatedOn}</td>
               <td>{Attendance}</td>
             </tr>
-            </tbody>
+         
             
           ))}
           
-               
+          </tbody>   
        
     </Table>
 

@@ -1,19 +1,17 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useState ,useEffect} from "react";
 import axios from "axios";
-import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
-import mid from "../images/mid.jpeg";
 import Card from 'react-bootstrap/Card';
-const columns = [
+const Internalmarks= [
   "subShortForm",
   "mid1",
-  "mid2",
-  "lab",
-  "practical"
+  "mid2"
+  
 ];
+const labs=["lab",
+"practical"]
 export default function MidMarks() {
   const result=localStorage.getItem('rollno');
   const[rollno,setrollno]=useState(result);
@@ -69,27 +67,54 @@ export default function MidMarks() {
           <Table striped bordered hover variant="primary">
       <thead>
           <tr>           
-            {columns.map((col) => (
+            {Internalmarks.map((col) => (
               <td key={col}>{col}</td>
             ))}
             </tr>
             </thead>
+            <tbody>
                        {marks &&
-            marks.map((row, i) => (
-              <tbody>
+            marks.filter(marks=> marks.subShortForm !=="").map((row, i) => (
+             
               <tr>
-                {columns.map((col) => (
+                {Internalmarks.map((col) => (
                   <td key={`${col}-${i}`}>{row[col]}</td>
                 ))}
               </tr>
-              </tbody>
+           
             ))}
-              
+            </tbody> 
                
                
             
 
             </Table>
+            <Table striped bordered hover variant="primary">
+      <thead>
+          <tr>           
+            {labs.map((col) => (
+              <td key={col}>{col}</td>
+            ))}
+            </tr>
+            </thead>
+            <tbody>
+                       {marks &&
+            marks.filter(marks=>marks.lab !=="").map((row, i) => (
+            
+              <tr>
+                {labs.map((col) => (
+                  <td key={`${col}-${i}`}>{row[col]}</td>
+                ))}
+              </tr>
+            
+            ))}
+                </tbody>
+               
+               
+            
+
+            </Table>
+          
           
       
 </div>
