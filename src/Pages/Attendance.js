@@ -16,7 +16,6 @@ export default function Attendance() {
    },[rollno]);
    
   const attendance=()=>{
-    console.log(`${labs}`)
     setPost({})
     axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
