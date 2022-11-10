@@ -85,7 +85,7 @@ export default function Attendance() {
           
            </thead>
            <tbody>
-            {post && Object.entries(post).map(([name, { LastUpdatedOn, Attendance }]) => (
+            {post && Object.entries(post).filter(([key,value])=> (key!=="Labs" && key!=="percent" && key!=="percent_breakup")).map(([name, { LastUpdatedOn, Attendance }]) => (
               
     
             <tr>
