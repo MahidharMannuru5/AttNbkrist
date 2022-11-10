@@ -29,6 +29,9 @@ a{
 input{
   border-radius: 15px 15px 15px 15px;
 }
+.counter{
+  display: none;
+}
 
 .percentage{
   margin:10px;
