@@ -25,7 +25,7 @@ export default function MidMarks() {
     setmarks([])
     axios
       .get(
-        `https://att.nbkrist.org/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=${rollno}`
+        `https://att.nbkrist.co.in/attendance/Apps_ren/getAllMidMarksAsJSONGivenRollNo.php?q=${rollno}`
       )
       .then((response) => {
         setmarks(response.data);
