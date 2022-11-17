@@ -8,7 +8,6 @@ import  { useState ,useEffect} from 'react';
 
 export default function Attendance() {
   const result=localStorage.getItem('rollno');
-  const [labs,setlabs]=useState([]);
   const[rollno,setrollno]=useState(result);
   const [post, setPost] = useState();
   const [error, setError] = useState();
@@ -17,16 +16,12 @@ export default function Attendance() {
    },[rollno]);
    
   const attendance=()=>{
-    setlabs([])
+   
     setPost({})
-    axios.get(`https://att.nbkrist.org/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+    axios.get(`https://att.nbkrist.co.in/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
       if(data) {
           setPost(response.data);
-          setlabs([response.data.Labs]);
-          console.log(`${labs}`);
-          labs && labs.forEach(obj=>Object.entries(obj).map(([key,value])=>
-          console.log(`${key}`)))
 
       
        } else {
@@ -112,30 +107,7 @@ export default function Attendance() {
     
       <br />
 
-      <Table striped bordered hover variant="primary">
-      <thead>
-          <tr>
-            <th>
-           Lab Day
-            </th>
-            
-            <th>
-              Periods
-              </th>
-            </tr>
-          
-           </thead>
-           <tbody>
 
-            {labs && labs.forEach(obj=>Object.entries(obj)).map(([key,value])=> (           
-            <tr>
-              <td>{key}</td>
-              <td>{value}</td>
-            </tr>
-          ))}
-          </tbody>   
-       
-    </Table>
 <br/>
       
     </div>
