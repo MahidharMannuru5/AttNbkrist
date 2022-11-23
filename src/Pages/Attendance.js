@@ -18,7 +18,7 @@ export default function Attendance() {
   const attendance=()=>{
    
     setPost({})
-    axios.get(`https://att.nbkrist.co.in/attendance/Apps_ren/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
+    axios.get(`https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}`).then((response) => {
       const { data } = response
       if(data) {
           setPost(response.data);
