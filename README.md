@@ -38,6 +38,11 @@ API Reference
 The application makes use of two API endpoints for fetching attendance and mid-marks data. The endpoints are:
 
 /api/attendance: This endpoint is used to fetch attendance data for a specific student. The endpoint expects a query parameter called rollNumber to be passed in the request.
+
 /api/midmarks: This endpoint is used to fetch mid-marks data for a specific student. The endpoint expects a query parameter called rollNumber to be passed in the request.
+
+
+
+
 Screenshots
 Include screenshots of the website, that demonstrate how the application works.
