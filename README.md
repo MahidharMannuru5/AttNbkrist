@@ -6,12 +6,17 @@ This project is a web-based application designed to provide attendance and mid-m
 https://mahidharmannuru5.github.io/AttNbkrist/#
 
 Setting up the Project
+
+
 The project is built using ReactJS and PHP. In order to run the project locally, you will need to have Node.js and a web server with PHP installed on your machine.
 
 Clone the project from GitHub
 Go to the project folder and run npm install to install all the necessary dependencies
 Start the development server by running npm start
 The application will be running on http://localhost:3000
+
+
+
 Project Structure
 The project is divided into several components and modules, each with a specific purpose. The key components are:
 
@@ -24,6 +29,10 @@ locally by visiting http://localhost:3000 after running the application on your 
 remotely by visiting https://mahidharmannuru5.github.io/<repository> on your browser.
 The Application has two pages one for checking attendance and another for checking mid-marks. To check attendance, user needs to enter the roll number and it will show the attendance ration and last updated info if the data is present.
 Similar for midmarks too.
+
+
+
+
 API Reference
   
 The application makes use of two API endpoints for fetching attendance and mid-marks data. The endpoints are:
