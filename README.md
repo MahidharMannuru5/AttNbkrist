@@ -35,7 +35,10 @@ Similar for midmarks too.
 
 
 API Reference
+
+
 RollNumbers to check:20kb1a05b0,20kb1a05b9,22kb1a0588
+
 The application makes use of two API endpoints for fetching attendance and mid-marks data. The endpoints are:
 Attendance:
 https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}
