@@ -13,7 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 How to use the website?
 Click the following URL:
-https://mahidharmannuru5.github.io/AttNbkrist/#/(Deleted page due to security issues at the college,it works fine in local machine)
+https://mahidharmannuru5.github.io/AttNbkrist/#/
 
 Enter your rollNo:Ex:19kb1a05b9,20kb1a05b9
 For the MidMarks,
