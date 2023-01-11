@@ -46,3 +46,5 @@ The application makes use of two API endpoints for fetching attendance and mid-m
 
 Screenshots
 Include screenshots of the website, that demonstrate how the application works.
+
+
