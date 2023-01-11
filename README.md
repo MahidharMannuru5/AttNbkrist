@@ -37,13 +37,12 @@ Similar for midmarks too.
 API Reference
   
 The application makes use of two API endpoints for fetching attendance and mid-marks data. The endpoints are:
-
-https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}/attendance:
+Attendance:
+https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getSubwiseAttAsJSONGivenRollNo.php?q=${rollno}
 
 This endpoint is used to fetch attendance data for a specific student. The endpoint expects a query parameter called rollNumber to be passed in the request.
-
-https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getAllMidMarksAsJSONGivenRollNo.php?q=${rollno}/midmarks:
-
+MidMarks:
+https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getAllMidMarksAsJSONGivenRollNo.php?q=${rollno}
 
 This endpoint is used to fetch mid-marks data for a specific student. The endpoint expects a query parameter called rollNumber to be passed in the request.
 
