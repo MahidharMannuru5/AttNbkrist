@@ -35,7 +35,7 @@ Similar for midmarks too.
 
 
 API Reference
-
+(I have built these two APIs at the college server for security reasons I'm not able to add code in the repo)
 
 RollNumbers to check:20kb1a05b0,20kb1a05b9,22kb1a0588
 
