@@ -16,9 +16,13 @@ const CreatePost = () => {
     <>
     <div className="createPost">
         <div >CreatePost</div>
-        <input  type="text" placeholder='Title'/>
+        <input  type="text" onchange={(event)=>{
+          setTitle(event.target.value)
+        }}placeholder='Title'/>
         <div className="PostContent">
-        <textarea name="postContent" rows={4} cols={40} />
+        <textarea name="postContent" onchange={(event)=>{
+          setBody(event.target.value)
+        }} rows={4} cols={40} />
         </div>
         <Button onClick={addPostToFirebase}>create</Button>
         </div>
