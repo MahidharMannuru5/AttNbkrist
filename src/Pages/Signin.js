@@ -24,12 +24,14 @@ const Signin = () => {
   const[Email,setEmail]=useState(" ");
   const Login=async()=>{
 
-await sendSignInLinkToEmail(auth, {Email}, actionCodeSettings)
-  .then(() => {
+    await auth.sendSignInLinkToEmail(Email, actionCodeSettings)
+
+    .then(() => {
     // The link was successfully sent. Inform the user.
     // Save the email locally so you don't need to ask the user for it again
     // if they open the link on the same device.
-    window.localStorage.setItem('emailForSignIn', {Email});
+    window.localStorage.setItem('emailForSignIn', Email);
+
     // ...
   })
   .catch((error) => {

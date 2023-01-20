@@ -47,7 +47,7 @@ export default function Attendance() {
         RollNo:
       </label>
       
-<input type="text" required size={10} value={rollno} onChange={(event)=>{
+<input type="text" className='titleofpost' required size={10} value={rollno} onChange={(event)=>{
   setrollno(event.target.value.toLowerCase());
 }} />
 

@@ -26,8 +26,17 @@ a{
   margin:0 auto!important;
   padding:15px!important;
 }
-input{
-  border-radius: 15px 15px 15px 15px;
+.PostContent{
+margin:5px;
+}
+.createPost{
+  align-items: center;
+  text-align: center;
+  border:solid 1px;
+  border-right:300px;
+}
+.titleofpost{
+  border-radius:15px 15px 15px 15px;
 }
 .counter{
   display: none;
