@@ -4,8 +4,8 @@
   text-align: center;
   align-items: center;
   border: solid 1px;
-  margin-right:25%;
-  margin-left:25%;
+  margin-right:15%;
+  margin-left:15%;
 }
 body {
   margin: 0;
@@ -42,7 +42,8 @@ margin:5px;
   align-items: center;
   text-align: center;
   border:solid 1px;
-  border-right:300px;
+  margin-right:25%;
+  margin-left:25%;
 }
 .titleofpost{
   border-radius:15px 15px 15px 15px;
