@@ -11,16 +11,19 @@ const CreatePost = () => {
     const collectionReference=collection(db,"ContentPosts");
     const  addPostToFirebase=async()=>{
       await addDoc(collectionReference,{Title,Body})
+      setTitle(" ");
+      setBody(" ");
+     
     }
   return (
     <>
     <div className="createPost">
         <div >CreatePost</div>
-        <input  type="text" onchange={(event)=>{
+        <input  type="text" onChange={(event)=>{
           setTitle(event.target.value)
         }}placeholder='Title'/>
         <div className="PostContent">
-        <textarea name="postContent" onchange={(event)=>{
+        <textarea name="postContent" onChange={(event)=>{
           setBody(event.target.value)
         }} rows={4} cols={40} />
         </div>
