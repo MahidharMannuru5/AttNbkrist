@@ -2,6 +2,7 @@ import './App.css';
 import Attendance from './Pages/Attendance';
 import MidMarks from './Pages/MidMarks';
 import SignUp from './Pages/SignUp';
+import Signin from './Pages/Signin';
 import {Routes,Route,Link} from "react-router-dom"
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
           <Link to="/">Attendance</Link>
           <Link to="/MidMarks">MidMarks</Link>
           <Link to="/SignUp">Sign-Up</Link>
+          <Link to="/Signin">SignIn</Link>
+
       </nav>
       
       </div>
@@ -30,6 +33,8 @@ function App() {
         <Route path="/" element={<Attendance/>}/>
         <Route path="/MidMarks" element={<MidMarks/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
+        <Route path="/SignIn" element={<Signin/>}/>
+
 
 
         </Routes>
