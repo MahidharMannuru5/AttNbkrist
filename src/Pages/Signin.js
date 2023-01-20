@@ -24,12 +24,12 @@ const Signin = () => {
   const[Email,setEmail]=useState(" ");
   const Login=async()=>{
 
-sendSignInLinkToEmail(auth, Email, actionCodeSettings)
+await sendSignInLinkToEmail(auth, {Email}, actionCodeSettings)
   .then(() => {
     // The link was successfully sent. Inform the user.
     // Save the email locally so you don't need to ask the user for it again
     // if they open the link on the same device.
-    window.localStorage.setItem('emailForSignIn', email);
+    window.localStorage.setItem('emailForSignIn', {Email});
     // ...
   })
   .catch((error) => {
@@ -55,8 +55,9 @@ sendSignInLinkToEmail(auth, Email, actionCodeSettings)
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       
-       <button onClick={Login}> Login</button>
-      
+      <Button variant="primary" type="submit" onClick={Login}>
+        Login
+      </Button>      
     </Form>
     </div>
     </>
