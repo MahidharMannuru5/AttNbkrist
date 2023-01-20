@@ -19,11 +19,11 @@ const CreatePost = () => {
     <>
     <div className="createPost">
         <div >CreatePost</div>
-        <input  type="text" onChange={(event)=>{
+        <input  type="text" value={Title} onChange={(event)=>{
           setTitle(event.target.value)
         }}placeholder='Title'/>
         <div className="PostContent">
-        <textarea name="postContent" onChange={(event)=>{
+        <textarea name="postContent" value={Body} onChange={(event)=>{
           setBody(event.target.value)
         }} rows={4} cols={40} />
         </div>
