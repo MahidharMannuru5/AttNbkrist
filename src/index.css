@@ -67,7 +67,12 @@
   /* Add some color */
   color: #fff;
 }
-
+.navbar-brand{
+  color:white!important;
+}
+.navbar-toggler-icon{
+  color:white!important;
+}
 .Blog-post{
   text-align: center;
   align-items: center;
@@ -92,9 +97,7 @@ body {
   color:black;
 }
 
-Link{
-  color:black;
-}
+
 .container-fluid{
   align-items: center;
   text-align: center;
@@ -102,11 +105,27 @@ Link{
 a{
   text-decoration: none!important;
   align-items: center;
-  font-size: 17px;
-  color:white!important;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif!important;
-  margin:10px!important;
-  margin:0 auto!important;
+}
+.navbar-brand{
+  margin-left:150px!important;
+}
+
+@media (max-width: 540px) {
+  .offcanvas-body .nav-link {
+      color: black;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color:white!important;
+}
+.navbar-light .navbar-toggler {
+  color: #adb5bd!important;
+  border-color: #dee2e6!important;
+}
+.navbar-link{
+  color:white!important;
 }
 @media only screen and (max-width: 480px) {
   

@@ -1,7 +1,10 @@
 import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 import Home from "../Pages/Home"
 import ChatSystem from "../Pages/ChatSystem";
 import DataStore from "../Pages/DataStore";
@@ -14,30 +17,42 @@ import CreatePost from "../Pages/CreatePost";
 const NavBar=()=> {
   return (
     <>
-    <Navbar bg="dark" expand="lg">
-      <Container fluid>
-        <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="ml-auto my-2 my-lg-0 text-center"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
-            <Nav.Link as={Link} to={"/DataStore"}>DataStore</Nav.Link>
-            <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
-            <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
-            <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
-            <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
-            <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>
+    {['sm'].map((expand) => (
+        <Navbar key={expand} bg="dark" expand={expand} className="mb-3">
+          <Container fluid>
+            <Navbar.Brand className="justify-content-center"as={Link} to={"/"}>Home</Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  Menu
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-start flex-grow-1 pe-3 text-center">
+                  <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
+                  <Nav.Link as={Link} to={"/DataStore"}>DataStore</Nav.Link>
+                  <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
+                  <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
+                  <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
+                  <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
+                  <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>
 
 
-          </Nav>
-        
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+
+
+                 
+                   
+                </Nav>
+                </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
     
     </>
   );
