@@ -6,14 +6,19 @@ import {auth,db} from '../ConfigFirebase/Firebase';
 import Form from 'react-bootstrap/Form';
 
 const CreatePost = () => {
-    const[Title,setTitle]=useState(" ");
-    const[Body,setBody]=useState(" ");
+    const[Title,setTitle]=useState("");
+    const[Body,setBody]=useState("");
     const collectionReference=collection(db,"ContentPosts");
     const  addPostToFirebase=async()=>{
+      if (Title==="" || Body==="") {
+        alert("Please Fill the Fields");
+        return;
+      }
+      else{
       await addDoc(collectionReference,{Title,Body})
       setTitle(" ");
       setBody(" ");
-     
+      };
     }
   return (
     <>

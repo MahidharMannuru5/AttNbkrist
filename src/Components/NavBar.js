@@ -7,7 +7,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import Home from "../Pages/Home"
 import ChatSystem from "../Pages/ChatSystem";
-import DataStore from "../Pages/DataStore";
+import MakeAcall from "../Pages/MakeAcall";
 import Attendance from "../Pages/Attendance";
 import MidMarks from "../Pages/MidMarks";
 import Signin from "../Pages/Signin";
@@ -35,7 +35,7 @@ const NavBar=()=> {
               <Offcanvas.Body>
                 <Nav className="justify-content-start flex-grow-1 pe-3 text-center">
                   <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
-                  <Nav.Link as={Link} to={"/DataStore"}>DataStore</Nav.Link>
+                  <Nav.Link as={Link} to={"/MakeAcall"}>MakeAcall</Nav.Link>
                   <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
                   <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
                   <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>

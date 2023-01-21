@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DataStore = () => {
+const MakeAcall = () => {
   return (
     <div>DataStore</div>
   )
 }
 
-export default DataStore;
+export default MakeAcall;

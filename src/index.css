@@ -1,3 +1,29 @@
+.Blog-post {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.Blog-post h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Blog-post p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.Blog-post h5 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+}
 
 
 .chat-system-container {
@@ -108,15 +134,21 @@ a{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif!important;
 }
 .navbar-brand{
-  margin-left:150px!important;
+  margin-left:50px!important;
 }
+.offcanvas-body {
+  width: 50%!important;
+}
+
 
 @media (max-width: 540px) {
   .offcanvas-body .nav-link {
       color: black;
   }
 }
-
+.offcanvas-end{
+  width:200px!important;
+}
 .navbar-light .navbar-nav .nav-link{
   color:white!important;
 }

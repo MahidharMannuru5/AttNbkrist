@@ -5,7 +5,7 @@ import SignUp from './Pages/SignUp';
 import Signin from './Pages/Signin';
 import CreatePost from './Pages/CreatePost';
 import Home from './Pages/Home';
-import DataStore from './Pages/DataStore';
+import MakeAcall from './Pages/MakeAcall';
 import ChatSystem from './Pages/ChatSystem';
 import {Routes,Route,Link} from "react-router-dom"
 import NavBar from './Components/NavBar';
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/ChatSystem" element={<ChatSystem/>}/>
-        <Route path="/DataStore" element={<DataStore/>}/>
+        <Route path="/MakeAcall" element={<MakeAcall/>}/>
 
         <Route path="/Attendance" element={<Attendance/>}/>
         <Route path="/CreatePost" element={<CreatePost/>}/>
