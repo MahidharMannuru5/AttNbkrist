@@ -27,14 +27,18 @@ body {
 Link{
   color:black;
 }
+.container-fluid{
+  align-items: center;
+  text-align: center;
+}
 a{
   text-decoration: none!important;
+  align-items: center;
   font-size: 17px;
   color:white!important;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif!important;
-  margin:4px!important;
+  margin:10px!important;
   margin:0 auto!important;
-  padding:15px!important;
 }
 @media only screen and (max-width: 480px) {
   
@@ -76,27 +80,16 @@ margin:5px;
 button{
   margin:15px;
 }
-.container-fluid{
-  background-color: rgb(11, 157, 167)!important;
-}
 
-.contiainer{
-  display:flex;
-  align-items: baseline;
-}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 
-.container-fluid{
-  background-color:rgb(77, 186, 230);
-  margin:0 auto;
-  padding:15px;
-  color:white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+
 .btn.btn-primary{
   background-color:rgb(77, 186, 230);
   color:white;
