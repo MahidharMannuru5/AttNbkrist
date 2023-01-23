@@ -21,7 +21,7 @@ function App() {
       if (user) {
         const uid = user.uid;
         console.log(uid)
-        setUid(auth.user.displayName);
+        setUid(auth.currentUser.displayName);
           
   
       } else {
