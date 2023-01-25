@@ -53,9 +53,9 @@ function App() {
             <Route path="/Attendance" element={<Attendance/>}/>
             <Route path="/CreatePost" element={<CreatePost/>}/>
             <Route path="/MidMarks" element={<MidMarks/>}/>
-          </>
-      
-        <Route path="/SignUp" element={<SignUp/>}/>
+          </>        
+          <Route path="/Signin" element={<Signin/>}/>
+          <Route path="/SignUp" element={<SignUp/>}/>
         </Routes>
      </div>
       </>

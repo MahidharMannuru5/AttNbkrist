@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {addDoc,getDocs,collection, onSnapshot, orderBy} from 'firebase/firestore';
+import {addDoc,getDocs,collection, onSnapshot} from 'firebase/firestore';
 import {auth,db} from '../ConfigFirebase/Firebase';
 
 const ChatSystem = () => {
@@ -8,7 +8,7 @@ const ChatSystem = () => {
   const messagesEndRef = useRef(null);
   const collectionReference=collection(db,"MessagesDataStore");
   useEffect(() => {
-    const FetchData = onSnapshot(collectionReference,orderBy("timestamp"),(snapshot) => {
+    const FetchData = onSnapshot(collectionReference,(snapshot) => {
         const data = snapshot.docs.map((doc) => doc.data());
         setMessages(data);
     });
