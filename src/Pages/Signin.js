@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { auth } from '../ConfigFirebase/Firebase';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
 
 
 const Signin = () => {
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [UseName, setUseName] = useState(" ");
   const Login = async () => {
 
     const auth = getAuth();
@@ -16,6 +17,18 @@ const Signin = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setUseName(auth.currentUser.displayName);
+
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            // ...
+          } else {
+            // User is signed out
+            // ...
+          }
+        });
         // ...
       })
       .catch((error) => {
@@ -28,9 +41,9 @@ const Signin = () => {
     <>
       <div className="container">
         <Form>
-          {auth.currentUser ? <h1>{auth.currentUser.displayName}</h1> : <h1>Not Logged In</h1>}
+          {auth.currentUser ? <h1>loggedIn {auth.currentUser.displayName} </h1> : <h1>Not Logged In</h1>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email address{UseName}</Form.Label>
             <Form.Control type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
