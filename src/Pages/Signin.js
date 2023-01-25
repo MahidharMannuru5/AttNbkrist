@@ -28,7 +28,7 @@ const Signin = () => {
     <>
       <div className="container">
         <Form>
-          {auth.currentUser ? <h1>Logged In</h1> : <h1>Not Logged In</h1>}
+          {auth.currentUser ? <h1>{auth.currentUser.displayName}</h1> : <h1>Not Logged In</h1>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />
