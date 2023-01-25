@@ -1,30 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {addDoc,getDocs,collection, onSnapshot, orderBy} from 'firebase/firestore';
+import {auth,db} from '../ConfigFirebase/Firebase';
 
 const ChatSystem = () => {
-  const [messages, setMessages] = useState([
-    { username: 'User1', text: 'Hello', timestamp: new Date() },
-    { username: 'User2', text: 'Hi', timestamp: new Date() },
-  ]);
+  const [messages, setMessages] = useState([{}]);
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef(null);
+  const collectionReference=collection(db,"MessagesDataStore");
+  useEffect(() => {
+    const FetchData = onSnapshot(collectionReference,orderBy("timestamp"),(snapshot) => {
+        const data = snapshot.docs.map((doc) => doc.data());
+        setMessages(data);
+    });
+    return () => FetchData();
+}, []);
 
   useEffect(() => {
     messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
   }, [messages]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessages([
-      ...messages,
-      {
-        username: 'You',
-        text: newMessage,
-        timestamp: new Date(),
-      },
-    ]);
-    setNewMessage('');
-  };
-
+    if (newMessage===" ") {
+      alert("Please Enter the Message");
+      return;
+    } else {
+      const timestamp = new Date();
+      await addDoc(collectionReference,{username:"mannuru",newMessage,timestamp: timestamp})
+      setNewMessage(" ");
+    }
+  }
   return (
     <div className="container-fluid h-100 chat-system-container">
       <div className="row h-100">
@@ -33,8 +38,8 @@ const ChatSystem = () => {
             {messages.map((message) => (
               <div key={message.timestamp} className="message-container">
                 <div className="message-username">{message.username}</div>
-                <div className="message-text">{message.text}</div>
-                <div className="message-timestamp">{message.timestamp.toString()}</div>
+                <div className="message-text">{message.newMessage}</div>
+                <div className="message-timestamp">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>
               </div>
             ))}
           </div>

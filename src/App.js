@@ -10,18 +10,22 @@ import CreatePost from './Pages/CreatePost';
 import Home from './Pages/Home';
 import MakeAcall from './Pages/MakeAcall';
 import ChatSystem from './Pages/ChatSystem';
-import {Routes,Route,Link} from "react-router-dom"
+import {Routes,Route,Link, Navigate} from "react-router-dom"
 import NavBar from './Components/NavBar';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const[uid,setUid]=useState("Nothing")
+  const[user,setUser]=useState(null)
+  const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
         console.log(uid)
         setUid(auth.currentUser.displayName);
+        setUser(user);
           
   
       } else {
@@ -34,27 +38,32 @@ function App() {
   return (
     <>
 
-    <div className="App">
+<div className="App">
     <NavBar/>
      {uid}
   </div>
  <br/>
           <div ClassName="container-f">
       <Routes>
+        
         <Route path="/" element={<Home/>}/>
-        <Route path="/ChatSystem" element={<ChatSystem/>}/>
-        <Route path="/MakeAcall" element={<MakeAcall/>}/>
-
-        <Route path="/Attendance" element={<Attendance/>}/>
-        <Route path="/CreatePost" element={<CreatePost/>}/>
-        <Route path="/MidMarks" element={<MidMarks/>}/>
+          <>
+            <Route path="/ChatSystem" element={<ChatSystem/>}/>
+            <Route path="/MakeAcall" element={<MakeAcall/>}/>
+            <Route path="/Attendance" element={<Attendance/>}/>
+            <Route path="/CreatePost" element={<CreatePost/>}/>
+            <Route path="/MidMarks" element={<MidMarks/>}/>
+          </>
+      
         <Route path="/SignUp" element={<SignUp/>}/>
-        <Route path="/SignIn" element={<Signin/>}/>
-
         </Routes>
      </div>
       </>
   );
+}
+
+function isUserAuthenticated(user) {
+  return user !== null;
 }
 
 export default App;
