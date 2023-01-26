@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 const CreatePost = () => {
     const[Title,setTitle]=useState(" ");
     const[Body,setBody]=useState(" ");
+    const[postStatus,setPostStatus]=useState(" ");
     const collectionReference=collection(db,"ContentPosts");
     const  addPostToFirebase = async()=>{
       if (Title===" " || Body===" ") {
@@ -18,6 +19,7 @@ const CreatePost = () => {
         const timestamp=new Date();
         const user=auth.currentUser;
          await addDoc(collectionReference,{Title,Body,timestamp,username:user.email})
+        setPostStatus("Post Added Successfully");
          setTitle(" ");
          setBody(" ");
        }
@@ -47,6 +49,7 @@ const CreatePost = () => {
         SubmitPost
       </Button>
       </Form>
+      <h4 className='accountcreation' >{postStatus}</h4>
 </div>
     </>
   )

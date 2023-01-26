@@ -25,9 +25,7 @@ const NavBar = () => {
   }, []);
   const SignOut = () => {
     signOut(auth).then(() => {
-      // Sign-out successful.
     }).catch((error) => {
-      // An error happened.
     });
     
   }

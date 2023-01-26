@@ -9,18 +9,19 @@ import { Link } from 'react-router-dom';
 const SignUp = () => {
   const[password,setPassword]=useState(" ");
   const[email,setEmail]=useState(" ");
+  const[statusofcreation,setstatusofcreation]=useState(" ");
   const signUppp = async () => {
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
-        // ...
+        setstatusofcreation("Account Created successfully");
       })
       .catch((error) => {
         const errorCode = error.code;
+        console.log(error.message)
         const errorMessage = error.message;
-        // ..
+        setstatusofcreation(errorMessage);
       });
     }
     
@@ -47,9 +48,10 @@ const SignUp = () => {
         CreateAccount
       </Button>
     </Form>
+
     </div>
 
-
+           <h4 className='accountcreation' >{statusofcreation}</h4>  
     </>
   )
 }

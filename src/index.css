@@ -27,71 +27,54 @@
 
 
 .chat-system-container {
-  /* Add background color */
   background-color: #f2f2f2;
-  /* Add some padding */
   padding: 20px;
 }
 
 .messages-container {
-  /* Add some padding */
   padding: 10px;
-  /* Add a border */
   border: 1px solid #ccc;
-  /* Add a max-height and overflow property for scrolling */
   max-height: calc(100vh - 200px);
   overflow: auto;
 }
 
 .message-container {
-  /* Add some margin */
   margin-bottom: 10px;
-  /* Add some padding */
   padding: 10px;
-  /* Add a border */
   border: 1px solid #ccc;
-  /* Add some background color */
   background-color: #fff;
 }
 
 .message-username {
-  /* Add some font-weight */
   font-weight: bold;
-  /* Add some margin-bottom */
   margin-bottom: 5px;
 }
 
 .message-text {
-  /* Add some margin-bottom */
   margin-bottom: 5px;
 }
 
 .message-timestamp {
-  /* Add some color */
   color: #999;
-  /* Add some font-size */
   font-size: 12px;
 }
 
 .message-input-container {
-  /* Add some padding */
   padding: 10px;
-  /* Add a border */
   border: 1px solid #ccc;
-  /* Add some background color */
   background-color: #fff;
 }
 
 .message-input {
-  /* Add some margin-bottom */
   margin-bottom: 10px;
 }
 
 .message-submit-button {
-  /* Add some background color */
   background-color: #007bff;
-  /* Add some color */
   color: #fff;
+}
+.accountcreation{
+  text-align: center;
 }
 .navbar-brand{
   color:white!important;
