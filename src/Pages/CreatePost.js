@@ -6,26 +6,26 @@ import {auth,db} from '../ConfigFirebase/Firebase';
 import Form from 'react-bootstrap/Form';
 
 const CreatePost = () => {
-    const[Title,setTitle]=useState("");
-    const[Body,setBody]=useState("");
+    const[Title,setTitle]=useState(" ");
+    const[Body,setBody]=useState(" ");
     const collectionReference=collection(db,"ContentPosts");
-    const  addPostToFirebase=async()=>{
-      if (Title==="" || Body==="") {
+    const  addPostToFirebase = async()=>{
+      if (Title===" " || Body===" ") {
         alert("Please Fill the Fields");
         return;
       }
       else{
         const timestamp=new Date();
-      await addDoc(collectionReference,{Title:Title,Body:Body,timestamp:timestamp})
-      setTitle(" ");
-      setBody(" ");
+         await addDoc(collectionReference,{Title:Title,Body:Body,timestamp:timestamp})
+         setTitle(" ");
+         setBody(" ");
       };
     }
   return (
     <>
     <div className="container">
      <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label>CreatePost</Form.Label>
         <Form.Control type="text" placeholder="Title Goes Here"   onChange={(event)=>{
   setTitle(event.target.value)}} />
