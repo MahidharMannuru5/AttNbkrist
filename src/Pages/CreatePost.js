@@ -16,7 +16,8 @@ const CreatePost = () => {
       }
       else{
         const timestamp=new Date();
-         await addDoc(collectionReference,{Title,Body,timestamp})
+        const user=auth.currentUser;
+         await addDoc(collectionReference,{Title,Body,timestamp,username:user.email})
          setTitle(" ");
          setBody(" ");
        }

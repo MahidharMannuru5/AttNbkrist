@@ -11,7 +11,7 @@ const Home = () => {
     const FetchData = onSnapshot(q,(snapshot) => {
     const data = snapshot.docs.map((doc) => {
     const data = doc.data();
-    return {...data,Title: data.Title,timestamp: data.timestamp, Body: data.Body};
+    return {...data,Title: data.Title,timestamp: data.timestamp, Body: data.Body,username: data.username};
     });
     console.log(data);
     setcontentpost(data);
@@ -26,11 +26,10 @@ const Home = () => {
     {contentpost.map((post) => (
     
   <div key={post.id}>
-      <div className="Blog-post">
-        <Button className="justify-content-end">Delete</Button>
+    <div className="Blog-post">
     <h3>{post.Title}</h3>
     <p>{post.Body}</p>
-    <h5>@MahidharMannuru{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
+    <h5> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
   
   </div>
