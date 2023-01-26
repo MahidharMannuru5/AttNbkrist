@@ -57,7 +57,7 @@ function App({useName}) {
 
           {user ?
     <>
-        <Route path="/ChatSystem" element={<ChatSystem />} />
+        <Route path="/ChatSystem" element={<ChatSystem  auth={auth}/>} />
         <Route path="/MakeAcall" element={<MakeAcall />} />
         <Route path="/Attendance" element={<Attendance />} />
         <Route path="/CreatePost" element={<CreatePost />} />

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {addDoc,getDocs,collection, onSnapshot,query,orderBy} from 'firebase/firestore';
 import {auth,db} from '../ConfigFirebase/Firebase';
 
-const ChatSystem = () => {
+const ChatSystem = ({auth}) => {
   const [messages, setMessages] = useState([{}]);
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef(null);
@@ -10,7 +10,12 @@ const ChatSystem = () => {
   const q=query(collectionReference,orderBy("timestamp","asc"));
   useEffect(() => {
     const FetchData = onSnapshot(q,(snapshot) => {
-        const data = snapshot.docs.map((doc) => doc.data());
+      const data = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {...data,username: data.username,timestamp: data.timestamp, newMessage: data.newMessage};
+        });
+        
+         console.log(data);
         setMessages(data);
     });
     return () => FetchData();
@@ -27,7 +32,9 @@ const ChatSystem = () => {
       return;
     } else {
       const timestamp = new Date();
-      await addDoc(collectionReference,{usernname:"mannuru",newMessage,timestamp: timestamp})
+      const user = auth.currentUser;
+
+      await addDoc(collectionReference,{newMessage,timestamp,username:user.displayName})
       setNewMessage(" ");
     }
   }
@@ -38,9 +45,10 @@ const ChatSystem = () => {
           <div className="overflow-auto">
             {messages.map((message) => (
               <div key={message.timestamp} className="message-container">
-                <div className="message-username">{message.username}</div>
                 <div className="message-text">{message.newMessage}</div>
                 <div className="message-timestamp">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>
+                <div className="message-username">{message.username}</div>
+
               </div>
             ))}
           </div>

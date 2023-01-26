@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
-import {getDocs,collection} from "firebase/firestore"
+import {getDocs,collection,query,orderBy,onSnapshot} from "firebase/firestore"
 import {db} from "../ConfigFirebase/Firebase"
 import {useState} from "react"
 const Home = () => {
   const[contentpost,setcontentpost]=useState([]);
   const collectionReference=collection(db,"ContentPosts");
-  useEffect(()=>{
-    const getPosts=async()=>{
-      const docRef=await getDocs(collectionReference);
-      const data=docRef.docs.map((doc)=>doc.data());
-      setcontentpost(data);
-      console.log(data);
-    }
-    getPosts();
-  },[])
+  const q=query(collectionReference,orderBy("timestamp","desc"));
+  useEffect(() => {
+    const FetchData = onSnapshot(q,(snapshot) => {
+    const data = snapshot.docs.map((doc) => {
+    const data = doc.data();
+    return {...data,Title: data.Title,timestamp: data.timestamp, Body: data.Body};
+    });
+    console.log(data);
+    setcontentpost(data);
+    });
+    return () => FetchData();
+    }, []);
 
   return (
     <>
@@ -25,7 +28,7 @@ const Home = () => {
       <div className="Blog-post">
     <h3>{post.Title}</h3>
     <p>{post.Body}</p>
-    <h5>@MahidharMannuru</h5>
+    <h5>@MahidharMannuru{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
   
   </div>
