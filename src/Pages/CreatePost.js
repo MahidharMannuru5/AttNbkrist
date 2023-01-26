@@ -16,18 +16,20 @@ const CreatePost = () => {
       }
       else{
         const timestamp=new Date();
-         await addDoc(collectionReference,{Title:Title,Body:Body,timestamp:timestamp})
-         setTitle(" ");
+         await addDoc(collectionReference,{Title,Body,timestamp})
+         setTitle("change");
          setBody(" ");
+       }
+        
       };
-    }
+     
   return (
     <>
     <div className="container">
      <Form>
       <Form.Group className="mb-3">
         <Form.Label>CreatePost</Form.Label>
-        <Form.Control type="text" placeholder="Title Goes Here"   onChange={(event)=>{
+        <Form.Control type="text" value={Title} placeholder="Title Goes Here"   onChange={(event)=>{
   setTitle(event.target.value)}} />
         <Form.Text className="text-muted">
           Pick title suits better for your Post
@@ -36,7 +38,7 @@ const CreatePost = () => {
 
       <Form.Group className="mb-3">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows="4" placeholder="Description goes here"   onChange={(event)=>{
+        <Form.Control as="textarea" value={Body} rows="4" placeholder="Description goes here"   onChange={(event)=>{
   setBody(event.target.value)}}/>
       </Form.Group>
       
