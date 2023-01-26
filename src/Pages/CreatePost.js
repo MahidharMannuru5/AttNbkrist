@@ -17,7 +17,7 @@ const CreatePost = () => {
       else{
         const timestamp=new Date();
          await addDoc(collectionReference,{Title,Body,timestamp})
-         setTitle("change");
+         setTitle(" ");
          setBody(" ");
        }
         
