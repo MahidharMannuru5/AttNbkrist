@@ -4,7 +4,8 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { auth } from '../ConfigFirebase/Firebase';
 import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
-
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
   const [Email, setEmail] = useState("");
@@ -41,7 +42,7 @@ const Signin = () => {
     <>
       <div className="container">
         <Form>
-          {auth.currentUser ? <h1>loggedIn {auth.currentUser.displayName} </h1> : <h1>Not Logged In</h1>}
+          {auth.currentUser ? <h1>Welcome To OneStopEd {auth.currentUser.displayName} </h1> : <h5>Please Login</h5>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address{UseName}</Form.Label>
             <Form.Control type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />

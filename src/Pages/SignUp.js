@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../ConfigFirebase/Firebase';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 const SignUp = () => {
   const[password,setPassword]=useState(" ");
   const[email,setEmail]=useState(" ");
@@ -44,9 +46,10 @@ const SignUp = () => {
       <Button variant="primary" type="submit" onClick={signUppp}>
         CreateAccount
       </Button>
-      <h4>Dont have an account?</h4>
     </Form>
     </div>
+
+
     </>
   )
 }

@@ -30,9 +30,6 @@ const ChatSystem = () => {
       setNewMessage(" ");
     }
   }
-  const signOut = () => {
-    
-  }
   return (
     <div className="container-fluid h-100 chat-system-container">
       <div className="row h-100">
