@@ -63,11 +63,8 @@ function App({useName}) {
         <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/MidMarks" element={<MidMarks />} />
     </>
-    : <Route path="/" element={<Navigate to="/Signin" />} />
-}
-
-
-          <Route path="/SignUp" element={<SignUp />} />
+    : <Route path="*" element={<Signin/>} />}      
+      <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </div>
     </>
