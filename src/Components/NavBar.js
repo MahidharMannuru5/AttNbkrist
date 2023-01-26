@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { auth } from '../ConfigFirebase/Firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged ,signOut} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -23,6 +23,14 @@ const NavBar = () => {
       }
     });
   }, []);
+  const SignOut = () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+    
+  }
 
   return (
     <>
@@ -56,8 +64,12 @@ const NavBar = () => {
                   
                   <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
                 </Nav>
+                {user ?<Button className="justify-content-end" onClick={SignOut}>SignOut</Button>:null}
+
                 </Offcanvas.Body>
+
             </Navbar.Offcanvas>
+
           </Container>
         </Navbar>
       ))}

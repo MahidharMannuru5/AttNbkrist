@@ -9,7 +9,7 @@ import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "firebase
 const Signin = () => {
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [UseName, setUseName] = useState(" ");
+  const [UseName, setUseName] = useState(false);
   const Login = async () => {
 
     const auth = getAuth();
@@ -19,7 +19,7 @@ const Signin = () => {
         const user = userCredential.user;
         onAuthStateChanged(auth, (user) => {
           if (user) {
-            setUseName(auth.currentUser.displayName);
+            setUseName(true);
 
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User

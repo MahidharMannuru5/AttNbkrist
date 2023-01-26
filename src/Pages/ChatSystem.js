@@ -26,9 +26,12 @@ const ChatSystem = () => {
       return;
     } else {
       const timestamp = new Date();
-      await addDoc(collectionReference,{username:"mannuru",newMessage,timestamp: timestamp})
+      await addDoc(collectionReference,{usernname:"mannuru",newMessage,timestamp: timestamp})
       setNewMessage(" ");
     }
+  }
+  const signOut = () => {
+    
   }
   return (
     <div className="container-fluid h-100 chat-system-container">
