@@ -50,7 +50,7 @@ if (user !== null) {
       <div className="container">
         <Form>
           <>
-          {auth.currentUser ? <h1>Welcome To OneStopEd</h1> : <h5>Please Login</h5>}
+          {auth.currentUser ? <h1>Welcome</h1> : <h5>Please Login</h5>}
           </>
           <>
           </>

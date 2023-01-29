@@ -2,7 +2,11 @@ import React, { useEffect } from 'react'
 import {getDocs,collection,query,orderBy,onSnapshot} from "firebase/firestore"
 import {db} from "../ConfigFirebase/Firebase"
 import {useState} from "react"
+import {GoTrashcan} from "react-icons/go"
 import {Button} from "react-bootstrap"
+
+cons
+
 const Home = () => {
   const[contentpost,setcontentpost]=useState([]);
   const collectionReference=collection(db,"ContentPosts");
@@ -28,6 +32,9 @@ const Home = () => {
   <div key={post.id}>
     <div className="Blog-post">
     <h3>{post.Title}</h3>
+    <div className="Blog-post-image">
+   <Button variant="danger"><GoTrashcan/></Button>
+    </div>
     <p>{post.Body}</p>
     <h5> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
