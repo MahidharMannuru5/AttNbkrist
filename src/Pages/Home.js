@@ -34,12 +34,12 @@ const Home = () => {
     <h3>{post.Title}</h3>
 
 
-    </div>
+  
     <p>{post.Body}</p>
     <h5> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
-  
   </div>
+ 
 ))}
 
    </>
