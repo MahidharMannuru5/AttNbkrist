@@ -1,3 +1,95 @@
+.Blog-post {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.Blog-post h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Blog-post p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.Blog-post h5 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+}
+
+
+.chat-system-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.messages-container {
+  padding: 10px;
+  border: 1px solid #ccc;
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+.message-container {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.message-username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message-text {
+  margin-bottom: 5px;
+}
+
+.message-timestamp {
+  color: #999;
+  font-size: 12px;
+}
+
+.message-input-container {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.message-input {
+  margin-bottom: 10px;
+}
+
+.message-submit-button {
+  background-color: #007bff;
+  color: #fff;
+}
+.accountcreation{
+  text-align: center;
+}
+.navbar-brand{
+  color:white!important;
+}
+.navbar-toggler-icon{
+  color:white!important;
+}
+.Blog-post{
+  text-align: center;
+  align-items: center;
+  border: solid 1px;
+  margin-right:15%;
+  margin-left:15%;
+  margin-bottom: 20px;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,20 +106,72 @@ body {
   color:black;
 }
 
-Link{
-  color:black;
+
+.container-fluid{
+  align-items: center;
+  text-align: center;
 }
 a{
   text-decoration: none!important;
-  font-size: 25px;
-  color:white!important;
+  align-items: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif!important;
-  margin:4px!important;
-  margin:0 auto!important;
-  padding:15px!important;
 }
-input{
-  border-radius: 15px 15px 15px 15px;
+.navbar-brand{
+  margin-left:50px!important;
+}
+.offcanvas-body {
+  width: 50%!important;
+}
+
+
+@media (max-width: 540px) {
+  .offcanvas-body .nav-link {
+      color: black;
+  }
+}
+.offcanvas-end{
+  width:200px!important;
+}
+.navbar-light .navbar-nav .nav-link{
+  color:white!important;
+}
+.navbar-light .navbar-toggler {
+  color: #adb5bd!important;
+  border-color: #dee2e6!important;
+}
+.navbar-link{
+  color:white!important;
+}
+@media only screen and (max-width: 480px) {
+  
+  .Blog-post{
+    text-align: center;
+    align-items: center;
+    border: solid 1px;
+    margin-right:10%;
+    margin-left:10%;
+    margin-bottom: 20px;
+
+    padding-bottom: 10px;
+  }
+}
+
+
+.PostContent{
+margin:5px;
+}
+.createPost{
+  align-items: center;
+  text-align: center;
+  border:solid 1px;
+
+}
+.titlepost{
+  width:313px;
+  border-radius:15px 15px 15px 15px;
+}
+.titleofpost{
+  border-radius:15px 15px 15px 15px;
 }
 .counter{
   display: none;
@@ -41,26 +185,16 @@ input{
 button{
   margin:15px;
 }
-.container-fluid{
-  background-color: rgb(11, 157, 167)!important;
-}
-.contiainer{
-  display:flex;
-  align-items: baseline;
-}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 
-.container-fluid{
-  background-color:rgb(77, 186, 230);
-  margin:0 auto;
-  padding:15px;
-  color:white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+
 .btn.btn-primary{
   background-color:rgb(77, 186, 230);
   color:white;

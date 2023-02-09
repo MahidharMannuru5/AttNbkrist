@@ -1,16 +1,38 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../ConfigFirebase/Firebase';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+const SignUp = () => {
+  const[password,setPassword]=useState(" ");
+  const[email,setEmail]=useState(" ");
+  const[statusofcreation,setstatusofcreation]=useState(" ");
+  const signUppp = async () => {
 
-
-const Signin = () => {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setstatusofcreation("Account Created successfully");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(error.message)
+        const errorMessage = error.message;
+        setstatusofcreation(errorMessage);
+      });
+    }
+    
   return (
     <>
     <div className="container">
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" placeholder="Enter email"   onChange={(event)=>{
+  setEmail(event.target.value)}} />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -18,17 +40,20 @@ const Signin = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password" placeholder="Password"   onChange={(event)=>{
+  setPassword(event.target.value)}}/>
       </Form.Group>
       
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={signUppp}>
         CreateAccount
       </Button>
-      <h4>Dont have an account?</h4>
     </Form>
+
     </div>
+
+           <h4 className='accountcreation' >{statusofcreation}</h4>  
     </>
   )
 }
 
-export default Signin
+export default SignUp
