@@ -4,11 +4,13 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/esm/Table';
 import  { useState ,useEffect} from 'react';
+import {auth} from "../ConfigFirebase/Firebase"
 
 
 export default function Attendance() {
   const result=localStorage.getItem('rollno');
-  const[rollno,setrollno]=useState(result);
+  const user=auth.currentUser
+  const rollno=user.email.slice(0,10)
   const [post, setPost] = useState();
   const [error, setError] = useState();
   useEffect(() => {
@@ -47,9 +49,7 @@ export default function Attendance() {
         RollNo:
       </label>
       
-<input type="text" className='titleofpost' required size={10} value={rollno} onChange={(event)=>{
-  setrollno(event.target.value.toLowerCase());
-}} />
+<input type="text" className='titleofpost' required size={10} value={rollno} />
 
 </Card.Header>
 

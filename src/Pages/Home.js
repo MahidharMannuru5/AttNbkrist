@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {getDocs,collection,query,orderBy,onSnapshot} from "firebase/firestore"
+import {getDocs,collection,query,orderBy,onSnapshot,deleteDoc,doc} from "firebase/firestore"
 import {auth,db} from "../ConfigFirebase/Firebase"
 import {useState} from "react"
 import {Button} from "react-bootstrap"
@@ -23,6 +23,10 @@ const Home = () => {
     });
     return () => FetchData();
     }, []);
+    const deletePost=async(id)=>{
+      const delReference=doc(db,"ContentPosts",id)
+      await deleteDoc(delReference)
+    }
 
   return (
     <>
@@ -32,10 +36,9 @@ const Home = () => {
      
   <div key={post.id}>
     <div className="Blog-post">
-    <h3>{post.Title} <FiEdit/><GoTrashcan/>
+    <h3>{post.Title} {auth && user.uid=== post.docId ? <button onClick={()=>{deletePost(post.Docid)}}><GoTrashcan/></button>:null}
 </h3>
     <p>{post.Body}</p>
-    <p>{auth && user.uid=== post.docId ? "Hello":null}</p>
     <h5> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
   </div>
