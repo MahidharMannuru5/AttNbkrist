@@ -15,7 +15,7 @@ const ChatSystem = () => {
     const FetchData = onSnapshot(q,(snapshot) => {
       const data = snapshot.docs.map((doc) => {
         const data = doc.data();
-        return {...data,username: data.username,timestamp: data.timestamp, newMessage: data.newMessage,Docid:doc.Docid};
+        return {...data,username: data.username,timestamp: data.timestamp, newMessage: data.newMessage,Docid:doc.id};
         });
         
          console.log(data);
@@ -54,7 +54,7 @@ const auth=getAuth(app);
           <div className="overflow-auto">
             {messages.map((message) => (
               <div key={message.timestamp} className="message-container">
-                <div className="message-username">{message.Docid}{message.username}{user && user.uid===message.userIdName ? 
+                <div className="message-username">{message.username}{user && user.uid===message.userIdName ? 
         <Button className="deleteButton" variant="danger" onClick={() => {deletemessage(message.Docid)}}>
           <GoTrashcan />
         </Button> : null}</div>

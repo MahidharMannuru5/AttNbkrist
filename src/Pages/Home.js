@@ -44,6 +44,7 @@ const Home = () => {
         </Button> : null}</div>
     </h3>
     <p>{post.Body}</p>
+    <img src={post.ImageUrl} />
     <h5> {post.username}<br />{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
 

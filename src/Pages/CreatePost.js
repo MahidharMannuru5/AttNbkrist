@@ -1,27 +1,40 @@
 import React from 'react'
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import {Button} from 'react-bootstrap'
 import {addDoc,collection} from 'firebase/firestore';
-import {auth,db} from '../ConfigFirebase/Firebase';
+import {auth,db,storage} from '../ConfigFirebase/Firebase';
 import Form from 'react-bootstrap/Form';
-
+import {ref,uploadBytes,listAll,getDownloadURL } from "firebase/storage";
 const CreatePost = () => {
     const[Title,setTitle]=useState(" ");
     const[Body,setBody]=useState(" ");
+    const[Image,setImage]=useState(null)
+
     const[postStatus,setPostStatus]=useState(" ");
     const collectionReference=collection(db,"ContentPosts");
     const  addPostToFirebase = async()=>{
-      if (Title===" " || Body===" ") {
+      if (Title===" " || Body===" " || Image===null) {
         alert("Please Fill the Fields");
         return;
       }
       else{
         const timestamp=new Date();
         const user=auth.currentUser;
-         await addDoc(collectionReference,{Title,Body,timestamp,username:user.email,userIdName:user.uid})
+        const imageRef=ref(storage,`images/${Image.name}`)
+
+        setPostStatus("Hangon While we are creating");
+         await uploadBytes(imageRef,Image).then(()=>{
+           console.log("Image Uploaded")
+         })
+         
+         const ImagedownloadRef=ref(storage,`images/${Image.name}`)
+         await getDownloadURL(ImagedownloadRef)
+           .then(async(url) => {
+         await addDoc(collectionReference,{Title,Body,timestamp,username:user.email,ImageUrl:url,userIdName:user.uid})})
         setPostStatus("Post Added Successfully");
          setTitle(" ");
          setBody(" ");
+         setImage(null)
        }
         
       };
@@ -44,7 +57,11 @@ const CreatePost = () => {
         <Form.Control as="textarea" value={Body} rows="4" placeholder="Description goes here"   onChange={(event)=>{
   setBody(event.target.value)}}/>
       </Form.Group>
-      
+      <Form.Group className="mb-3">
+      <Form.Control type="file"  placeholder="Title Goes Here"   onChange={(event)=>{
+  setImage(event.target.files[0])}} />
+      </Form.Group>
+
       <Button variant="primary" type="submit" onClick={addPostToFirebase}>
         SubmitPost
       </Button>
