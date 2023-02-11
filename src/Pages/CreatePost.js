@@ -18,7 +18,7 @@ const CreatePost = () => {
       else{
         const timestamp=new Date();
         const user=auth.currentUser;
-         await addDoc(collectionReference,{Title,Body,timestamp,username:user.email,docId:user.uid})
+         await addDoc(collectionReference,{Title,Body,timestamp,username:user.email,userIdName:user.uid})
         setPostStatus("Post Added Successfully");
          setTitle(" ");
          setBody(" ");

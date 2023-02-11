@@ -30,6 +30,8 @@ if (user !== null) {
             const uid = user.uid;
             const email = user.email;
             setUseName(email);
+            setEmail(" ");
+            setPassword(" ");
             console.log(email);
 
             

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {addDoc,getDocs,collection, onSnapshot,query,orderBy} from 'firebase/firestore';
+import {addDoc,getDocs,collection, onSnapshot,query,orderBy,deleteDoc,doc} from 'firebase/firestore';
 import {getAuth} from 'firebase/auth';
-import {auth,db,app} from '../ConfigFirebase/Firebase';
+import {app,auth,db} from "../ConfigFirebase/Firebase"
 import { GoTrashcan} from 'react-icons/go';
+import { Button } from 'react-bootstrap';
 
 const ChatSystem = () => {
   const [messages, setMessages] = useState([{}]);
@@ -14,7 +15,7 @@ const ChatSystem = () => {
     const FetchData = onSnapshot(q,(snapshot) => {
       const data = snapshot.docs.map((doc) => {
         const data = doc.data();
-        return {...data,username: data.username,timestamp: data.timestamp, newMessage: data.newMessage};
+        return {...data,username: data.username,timestamp: data.timestamp, newMessage: data.newMessage,Docid:doc.Docid};
         });
         
          console.log(data);
@@ -28,6 +29,7 @@ const auth=getAuth(app);
   useEffect(() => {
     messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
   }, [messages]);
+  const user = auth.currentUser;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,11 +38,14 @@ const auth=getAuth(app);
       return;
     } else {
       const timestamp = new Date();
-      const user = auth.currentUser;
       console.log(user);
-      await addDoc(collectionReference,{newMessage,timestamp,username:user.email})
+      await addDoc(collectionReference,{newMessage,timestamp,username:user.email,userIdName:user.uid})
       setNewMessage(" ");
     }
+  }
+  const deletemessage=async(id)=>{
+    const delReference=doc(db,"MessagesDataStore",id)
+    await deleteDoc(delReference)
   }
   return (
     <div className="container-fluid h-100 chat-system-container">
@@ -49,7 +54,10 @@ const auth=getAuth(app);
           <div className="overflow-auto">
             {messages.map((message) => (
               <div key={message.timestamp} className="message-container">
-                <div className="message-username">{message.username} <GoTrashcan/></div>
+                <div className="message-username">{message.Docid}{message.username}{user && user.uid===message.userIdName ? 
+        <Button className="deleteButton" variant="danger" onClick={() => {deletemessage(message.Docid)}}>
+          <GoTrashcan />
+        </Button> : null}</div>
 
                 <div className="message-text">{message.newMessage}</div>
                 <div className="message-timestamp">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>

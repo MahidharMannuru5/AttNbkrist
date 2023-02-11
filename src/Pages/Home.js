@@ -16,7 +16,7 @@ const Home = () => {
     const FetchData = onSnapshot(q,(snapshot) => {
     const data = snapshot.docs.map((doc) => {
     const data = doc.data();
-    return {...data,Title: data.Title,timestamp: data.timestamp, Body: data.Body,username: data.username,Docid:data.docId};
+    return {...data,Title: data.Title,timestamp: data.timestamp, Body: data.Body,username: data.username,Docid:doc.id};
     });
     console.log(data);
     setcontentpost(data);
@@ -34,14 +34,20 @@ const Home = () => {
     
     {contentpost.map((post) => (
      
-  <div key={post.id}>
+    <div key={post.id}>
     <div className="Blog-post">
-    <h3>{post.Title} {user && user.uid=== auth && post.docId ? <button onClick={()=>{deletePost(post.Docid)}}><GoTrashcan/></button>:null}
-</h3>
+    <h3 className="Blog-post-header">{post.Title}
+    <div className="Deletemaner">
+      {user && user.uid===post.userIdName ? 
+        <Button className="deleteButton" variant="danger" onClick={() => {deletePost(post.Docid)}}>
+          <GoTrashcan />
+        </Button> : null}</div>
+    </h3>
     <p>{post.Body}</p>
-    <h5> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
+    <h5> {post.username}<br />{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
   </div>
-  </div>
+
+    </div>
  
 ))}
 
