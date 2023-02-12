@@ -3,12 +3,10 @@ import { auth } from '../ConfigFirebase/Firebase';
 import { onAuthStateChanged ,signOut} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 const NavBar = () => {
   const [user, setUser] = useState(null);
@@ -52,7 +50,6 @@ const NavBar = () => {
         
                     <>
                       <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
-                      <Nav.Link as={Link} to={"/MakeAcall"}>MakeAcall</Nav.Link>
                       <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
                       <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
                       <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>

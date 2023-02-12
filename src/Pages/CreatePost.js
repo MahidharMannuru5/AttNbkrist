@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState,useEffect} from 'react';
+import {useState} from 'react';
 import {Button} from 'react-bootstrap'
 import {addDoc,collection} from 'firebase/firestore';
 import {auth,db,storage} from '../ConfigFirebase/Firebase';

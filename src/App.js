@@ -3,21 +3,20 @@ import './App.css';
 import Attendance from './Pages/Attendance';
 import { auth } from "./ConfigFirebase/Firebase"
 import { onAuthStateChanged } from "firebase/auth";
-import { Button } from "react-bootstrap"
+import UpdateBlog from "./Pages/UpdateBlog"
 import { useState } from "react"
 import MidMarks from './Pages/MidMarks';
 import SignUp from './Pages/SignUp';
 import Signin from './Pages/Signin';
 import CreatePost from './Pages/CreatePost';
 import Home from './Pages/Home';
-import MakeAcall from './Pages/MakeAcall';
+import SinglePost from "./Pages/SinglePost"
 import ChatSystem from './Pages/ChatSystem';
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route} from "react-router-dom"
 import NavBar from './Components/NavBar';
 import { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
 
-function App({useName}) {
+function App() {
   const [uid, setUid] = useState("Nothing")
   const [user, setUser] = useState(null)
   const navigate = useNavigate();
@@ -31,7 +30,7 @@ function App({useName}) {
       } else {
         console.log("no user")
         setUid("no user")
-        navigate('/Signin', { replace: true });  //use navigate here
+        navigate('/Signin', { replace: true });
       }
     });
   }, [])
@@ -58,10 +57,13 @@ function App({useName}) {
           {user ?
     <>
         <Route path="/ChatSystem" element={<ChatSystem  auth={auth}/>} />
-        <Route path="/MakeAcall" element={<MakeAcall />} />
         <Route path="/Attendance" element={<Attendance />} />
         <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/MidMarks" element={<MidMarks />} />
+        <Route path="/SinglePost/:Docid" element={<SinglePost/>} />
+        <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
+
+
     </>
     :    <Route path="*" element={<Signin/>} />}      
          <Route path="/SignUp" element={<SignUp />} />
