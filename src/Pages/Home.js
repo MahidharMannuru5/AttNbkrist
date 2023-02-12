@@ -35,36 +35,41 @@ const Home = () => {
     <>
   
     
-    {contentpost.map((post) => (
-     
-    <div key={post.id}>
+   
     <div className="Blog-post">
-    <h3 className="Blog-post-header">{post.Title}</h3>
+    {contentpost.map((post) => (
+      <div  key={post.id} className="Blog-family">
+      <div className="Blog-post-header">
+    <h5 >{post.Title.slice(0,45)}..</h5>
 
-    <div className="Deletemaner">
-      {user && user.uid===post.userIdName ? 
-        <Button className="deleteButton" variant="danger" onClick={() => {deletePost(post.Docid)}}>
-          <GoTrashcan />
-        </Button> : null}</div>
+   
+     
+    </div>    
+    <img className="Blog-Image" src={post.ImageUrl} />
+    <p>{post.Body.slice(0,100)}...</p>
+    <h6> {post.username}<br/>{post.timestamp && post.timestamp.toDate().toLocaleString()}</h6>
+
+    <div className="Blog-foot">
+    <Link to={`/SinglePost/${post.Docid}`}>
+    <Button variant="success" >ReadMore</Button>
+
+    </Link>
+    {user && user.uid===post.userIdName ? 
+         <h3 className='DeleteButton'> <GoTrashcan  onClick={() => {deletePost(post.Docid)}} /></h3>
+       : null}
     <Link  to={`/UpdateBlog/${post.Docid}`}>
 
       {user && user.uid===post.userIdName ? 
-        <Button >
-          <FiEdit />
-        </Button> : null}
-    </Link>
-    <p>{post.Body}</p>
-    <img src={post.ImageUrl} />
-    <h5> {post.username}<br />{post.timestamp && post.timestamp.toDate().toLocaleString()}</h5>
-    <Link to={`/SinglePost/${post.Docid}`}>
-    <Button variant="success" >ReadMore</Button>
-    </Link>
-  </div>
 
+        <h3 className="EditButton"><FiEdit /></h3>  
+         : null} 
+    </Link>
     </div>
+  </div>
+  
  
 ))}
-
+  </div>
    </>
        )
  

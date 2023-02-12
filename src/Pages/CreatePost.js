@@ -48,13 +48,13 @@ const CreatePost = () => {
         <Form.Control type="text" value={Title} placeholder="Title Goes Here"   onChange={(event)=>{
   setTitle(event.target.value)}} />
         <Form.Text className="text-muted">
-          Pick title suits better for your Post
+          Pick title suits better for your Post between 5-10 words
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" value={Body} rows="4" placeholder="Description goes here"   onChange={(event)=>{
+        <Form.Control as="textarea" value={Body} rows="4" placeholder="Description goes here Atleast 100 words"   onChange={(event)=>{
   setBody(event.target.value)}}/>
       </Form.Group>
       <Form.Group className="mb-3">

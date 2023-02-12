@@ -53,6 +53,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Signin" element={<Signin />} />
+          <Route path="/SinglePost/:Docid" element={<SinglePost/>} />
+          <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
 
           {user ?
     <>
@@ -60,8 +62,7 @@ function App() {
         <Route path="/Attendance" element={<Attendance />} />
         <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/MidMarks" element={<MidMarks />} />
-        <Route path="/SinglePost/:Docid" element={<SinglePost/>} />
-        <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
+        
 
 
     </>
