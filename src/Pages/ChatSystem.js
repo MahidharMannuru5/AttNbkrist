@@ -55,9 +55,8 @@ const auth=getAuth(app);
             {messages.map((message) => (
               <div key={message.timestamp} className="message-container">
                 <div className="message-username">{message.username}{user && user.uid===message.userIdName ? 
-        <Button className="deleteButton" variant="danger" onClick={() => {deletemessage(message.Docid)}}>
-          <GoTrashcan />
-        </Button> : null}</div>
+          <GoTrashcan className='DeleteButton' onClick={() => {deletemessage(message.Docid)}} />
+        : null}</div>
 
                 <div className="message-text">{message.newMessage}</div>
                 <div className="message-timestamp">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>
