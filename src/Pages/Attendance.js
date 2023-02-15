@@ -9,8 +9,7 @@ import {auth} from "../ConfigFirebase/Firebase"
 
 export default function Attendance() {
   const result=localStorage.getItem('rollno');
-  const user=auth.currentUser
-  const rollno=user.email.slice(0,10)
+  const [rollno,setrollno]=useState(result);
   const [post, setPost] = useState();
   const [error, setError] = useState();
   useEffect(() => {
@@ -49,7 +48,9 @@ export default function Attendance() {
         RollNo:
       </label>
       
-<input type="text" className='titleofpost' required size={10} value={rollno} />
+<input type="text" className='titleofpost' required size={10} value={rollno} OnChange={(event)=>{
+  setrollno(event.target.value.Lowercase())
+}}/>
 
 </Card.Header>
 
