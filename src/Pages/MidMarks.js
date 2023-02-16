@@ -45,7 +45,7 @@ export default function MidMarks() {
         RollNo:
       </label>
       
-<input type="text" className='titleofpost' required size={10} value={rollno} OnChange={(event)=>{
+<input type="text" className='titleofpost' required size={10}  OnChange={(event)=>{
   setrollno(event.target.value.Lowercase())
 }}/>
 </Card.Header>
