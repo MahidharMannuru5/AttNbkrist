@@ -56,7 +56,7 @@ if (user !== null) {
           </>
           <>
           </>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3 justify-content-center" controlId="formBasicEmail">
             <Form.Label>Email address{UseName}</Form.Label>
             <Form.Control type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />
             <Form.Text className="text-muted">
@@ -72,6 +72,9 @@ if (user !== null) {
             Login
           </Button>
         </Form>
+        <div className="container mt-3">
+        <p>Don't have an account? <Link to="/SignUp">Sign up here</Link>.</p>
+        </div>
       </div>
     </>
   )

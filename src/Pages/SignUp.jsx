@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../ConfigFirebase/Firebase';
-import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 const SignUp = () => {
   const[password,setPassword]=useState(" ");
@@ -48,6 +47,10 @@ const SignUp = () => {
         CreateAccount
       </Button>
     </Form>
+    <div className="container mt-3">
+        <p>Already have an account? <Link to="/Signin">Sign in here</Link>.</p>
+      </div>
+
 
     </div>
 
