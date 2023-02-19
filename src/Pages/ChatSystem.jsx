@@ -3,7 +3,9 @@ import {addDoc,getDocs,collection, onSnapshot,query,orderBy,deleteDoc,doc} from 
 import {getAuth} from 'firebase/auth';
 import {app,auth,db} from "../ConfigFirebase/Firebase"
 import { GoTrashcan} from 'react-icons/go';
+import {BiMessage} from "react-icons/bi"
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChatSystem = () => {
   const [messages, setMessages] = useState([{}]);
@@ -24,8 +26,6 @@ const ChatSystem = () => {
     return () => FetchData();
 }, []);
 const auth=getAuth(app);
-
-
   useEffect(() => {
     messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
   }, [messages]);
@@ -56,7 +56,7 @@ const auth=getAuth(app);
               <div key={message.timestamp} className="message-container">
                 <div className="message-username">{message.username}{user && user.uid===message.userIdName ? 
           <GoTrashcan className='DeleteButton' onClick={() => {deletemessage(message.Docid)}} />
-        : null}</div>
+            :<Link to={`Individualchat/${user.uid+message.userIdName}/${message.username}`}><BiMessage/></Link>}</div>
 
                 <div className="message-text">{message.newMessage}</div>
                 <div className="message-timestamp">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>

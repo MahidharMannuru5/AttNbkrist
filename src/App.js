@@ -4,6 +4,7 @@ import Attendance from './Pages/Attendance';
 import { auth } from "./ConfigFirebase/Firebase"
 import { onAuthStateChanged } from "firebase/auth";
 import UpdateBlog from "./Pages/UpdateBlog"
+import Individualchat from './Pages/Individualchat';
 import { useState } from "react"
 import MidMarks from './Pages/MidMarks';
 import SignUp from './Pages/SignUp';
@@ -55,18 +56,17 @@ function App() {
           <Route path="/Signin" element={<Signin />} />
           <Route path="/SinglePost/:Docid" element={<SinglePost/>} />
           <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
+          <Route path="ChatSystem/Individualchat/:UserId/:UserName" element={<Individualchat/>}/>
+
 
           {user ?
-    <>
+            <>
         <Route path="/ChatSystem" element={<ChatSystem  auth={auth}/>} />
         <Route path="/Attendance" element={<Attendance />} />
         <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/MidMarks" element={<MidMarks />} />
-        
-
-
-    </>
-    :    <Route path="*" element={<Signin/>} />}      
+        </>
+        :<Route path="*" element={<Signin/>} />}      
          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </div>

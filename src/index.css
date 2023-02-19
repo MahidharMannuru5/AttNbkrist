@@ -71,7 +71,15 @@
 .DeleteButton{
 color:red;
 }
-.EditButton{
+.container.Individualmessages{
+  width:1000px;
+  max-height:auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.DirectMessages{
+  margin-right:100px;
+  margin-left:10px;
 }
 *{
   box-sizing: border-box;
