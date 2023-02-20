@@ -3,7 +3,9 @@
   background-color: #f2f2f2;
   padding: 20px;
 }
-
+.container-f{
+  align-items: center;
+}
 .messages-container {
   padding: 10px;
   border: 1px solid #ccc;
@@ -55,28 +57,7 @@
 .navbar-toggler-icon{
   color:white!important;
 }
-.Blog-post{
-  display: flex;
-  justify-content: center;
-  flex-wrap:wrap;
 
-}
-.Blog-post-header {
- width:220px;
- height:50px;
- text-align: center;
-
- 
-}
-.DeleteButton{
-color:red;
-}
-.container.Individualmessages{
-  width:1000px;
-  max-height:auto;
-  display: flex;
-  flex-wrap: wrap;
-}
 .DirectMessages{
   margin-right:100px;
   margin-left:10px;
@@ -86,68 +67,12 @@ color:red;
   margin: 0;
   padding: 0;
 }
-.Blog-family h5{
-margin-left: 10px;
-}
-.Blog-Image{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
 
-  width:200x;
-  height:150px;
-  display: block;
-}
-.Blog-family h6,p{
-  align-items: center;
-  text-align: center;
-  
-}
-.Blog-family h5{
-  margin-top: 3px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif
-}
-.Blog-foot{
-  position: absolute;
-  bottom:0;
-  display: flex;
-  align-items: flex-end;
-
-}
-.Blog-family h6{
-  font-size: xx-small;
-}
-.Blog-family{
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  position: relative;
-  width:270px;
-  height:400px;
-  margin:40px;
-  border:solid 1px;
-  border-radius: 25px 25px 25px 25px;
-  overflow: hidden;
-
-
-}
 .btn{
    bottom: 0;
 }
 
-.DeleteButton{
-  margin-right: 30px;
-  margin-left:30px;
-  
-}
-@media only screen and (max-width: 325px) {
-  .DeleteButton{
-    margin-right: 15px;
-    margin-left:15px;
-    
-  }
-}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -213,22 +138,7 @@ margin:5px;
   border:solid 1px;
 
 }
-.titlepost{
-  width:313px;
-  border-radius:15px 15px 15px 15px;
-}
-.titleofpost{
-  border-radius:15px 15px 15px 15px;
-}
-.counter{
-  display: none;
-}
 
-.percentage{
-  margin:10px;
-  padding:5px;
-  align-items: center;
-}
 button{
   margin:15px;
 }
@@ -245,9 +155,4 @@ code {
 .btn.btn-primary{
   background-color:rgb(77, 186, 230);
   color:white;
-}
-img{
-  max-width:100%;
-  height: auto;
-  
 }

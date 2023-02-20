@@ -7,7 +7,7 @@ import { GoTrashcan} from 'react-icons/go';
 import {BiMessage} from "react-icons/bi"
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import "../Styles/Individual.css"
 const Individualchat = () => {
   const {UserId}=useParams()
   const {UserName}=useParams()
