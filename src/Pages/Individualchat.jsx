@@ -8,6 +8,7 @@ import {BiMessage} from "react-icons/bi"
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../Styles/Individual.css"
+
 const Individualchat = () => {
   const {UserId}=useParams()
   const {UserName}=useParams()
@@ -15,7 +16,7 @@ const Individualchat = () => {
   const [Messages, SetMessages] = useState([{}]);
   const [NewMessage, SetNewMessage] = useState("");
   const messagesRef = doc(db, "MessagesDataStore", UserId);
-  
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     const q = query(collection(messagesRef, 'messages'), orderBy('timestamp'));
@@ -28,6 +29,10 @@ const Individualchat = () => {
     });
     return unsubscribe;
   }, [messagesRef]);
+
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [Messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,32 +56,25 @@ const Individualchat = () => {
   };
 
   return (
-    <>
-
-    <div className='container Individualmessages'>
-      <div className='DirectMessages'>
-        Hello
+    <div className='Individualmessages'>
+      <div className='chat-container'>
+        <div className='chat-header'>{UserName}</div>
+        <div className='chat-messages'>
+          {Messages.map((message) => (
+            <div key={message.id} className={`chat-message ${message.sender === user.uid ? 'sender' : 'receiver'}`}>
+              {message.NewMessage}
+              <button className='delete-button' onClick={() => deleteMessage(message.id)}><GoTrashcan /></button>
+            </div>
+          ))}
+          <div ref={messagesEndRef}></div>
+        </div>
+        <form className='chat-form' onSubmit={handleSubmit}>
+          <input type='text' placeholder='Enter message here' value={NewMessage} onChange={(e) => SetNewMessage(e.target.value)} />
+          <button type='submit'><BiMessage /></button>
+        </form>
       </div>
-    <div>{UserName}
-    <div className='Individual Messages'>
-      {Messages.map((message)=>(
-        <div>
-
-         {message.NewMessage}
-         </div>
-      )) }
-     
     </div>
-    <input type="text" placeholder='Enter message here' value={NewMessage}
-                onChange={(e) => SetNewMessage(e.target.value) }/>
-    <button onClick={handleSubmit}>Send</button>
-    
-    </div>
-
-
-    </div>
-    </>
   )
 }
 
-export default Individualchat
+export default Individualchat;
