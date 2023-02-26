@@ -1,0 +1,26 @@
+.single-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin: 10px 0;
+  }
+  
+  .body-text {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  
+  .image-container {
+    margin-top: 30px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  

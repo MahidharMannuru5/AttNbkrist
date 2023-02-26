@@ -4,7 +4,7 @@ import {  useState ,useEffect} from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
-import { auth } from '../ConfigFirebase/Firebase';
+import Footer from "../Components/Footer"
 const Internalmarks= [
   "subShortForm",
   "mid1",
@@ -53,7 +53,7 @@ export default function MidMarks() {
 <Card.Body>
 <Card.Title><div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);}}>
 
-<input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
+      <input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
           <Card.Text>
           <button class="btn btn-primary" onClick={marked}>MidMarks</button>
 
@@ -119,16 +119,8 @@ export default function MidMarks() {
           
       
 </div>
+<Footer/>
 
-    </div>
-    <div className='footer'>
-      <h3>Trust The Process,Time has a Reply</h3>
-    </div>
-    <div className="help">
-    <a href="https://www.hitwebcounter.com">
-<img className="counter"src="https://hitwebcounter.com/counter/counter.php?page=8007496&style=0036&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                    
-                                    
-    
     </div>
     </>
   );

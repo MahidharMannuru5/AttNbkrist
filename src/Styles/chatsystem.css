@@ -1,0 +1,89 @@
+.chat-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.group-chat-container {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.Direct{
+  float:right
+}
+.group-messages-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.sender {
+  align-self: flex-end;
+}
+
+.message.receiver {
+  align-self: flex-start;
+}
+
+.group-message-username {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.group-message-text {
+  background-color: #e6e6e6;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-bottom: 5px;
+}
+
+.group-message-time {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.group-message-form {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+.group-message-form input[type='text'] {
+  flex-grow: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.group-message-form button[type='submit'] {
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.group-message-form button[type='submit']:hover {
+  background-color: #3e8e41;
+}

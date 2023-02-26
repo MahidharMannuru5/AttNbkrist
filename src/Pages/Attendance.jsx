@@ -4,8 +4,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/esm/Table';
 import  { useState ,useEffect} from 'react';
-import {auth} from "../ConfigFirebase/Firebase"
-
+import Footer from "../Components/Footer"
 
 export default function Attendance() {
   const result=localStorage.getItem('rollno');
@@ -112,16 +111,8 @@ export default function Attendance() {
 <br/>
       
     </div>
-    <div className="help">
-    <a href="https://www.hitwebcounter.com">
-<img className="counter"src="https://hitwebcounter.com/counter/counter.php?page=8007496&style=0036&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                    
-                                    
-    
-    </div>
-    </div>
-    <div className='footer'>
-      <h3>Trust The Process,Time has a Reply</h3>
-    </div>
+    <Footer/>
+</div>
     
     </>
   );

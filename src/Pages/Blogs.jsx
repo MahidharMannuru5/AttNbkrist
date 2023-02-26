@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="row">
+    <div className="justify-content-center row">
         {contentpost.map((post, index) => (
           <div key={index} className="col-m-8 col-md-3">
             <div className="Blog-family card h-100">

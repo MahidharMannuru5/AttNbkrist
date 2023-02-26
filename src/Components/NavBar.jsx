@@ -8,6 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import {MdLogout} from "react-icons/md"
+import "../Styles/Navbar.css"
 const NavBar = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -31,9 +33,9 @@ const NavBar = () => {
   return (
     <>
       {['sm'].map((expand) => (
-        <Navbar key={expand} bg="dark" expand={expand} className="mb-3">
-          <Container fluid>
-            <Navbar.Brand className="justify-content-center"as={Link} to={"/"}>Home</Navbar.Brand>
+        <Navbar key={expand} bg="Blue" expand={expand} className="mb-3">
+          <Container>
+            <Navbar.Brand>Education Sprint</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -46,23 +48,30 @@ const NavBar = () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-start flex-grow-1 pe-3 text-center">
+                <Nav className="justify-content-center flex-grow-1 pe-3 text-center">
         
-                    <>
+                    <>            
+                      <Nav.Link  as={Link} to={"/"}>Blogs</Nav.Link>
                       <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
                       <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
                       <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
                       <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>
+                      <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
+                       <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
+                       
                     </>
-                 
-                    <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
-                  
-                  <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
+                   
                 </Nav>
-                {user ?<Button className="justify-content-end" onClick={SignOut}>SignOut</Button>:null}
-
+              <Nav className="justify-content-end">
+              <Nav.Link >
+                       {user ?
+                          <>
+                          <MdLogout onClick={SignOut}/>Logout</>
+                          :null}
+                       </Nav.Link>
+              </Nav>
                 </Offcanvas.Body>
-
+                
             </Navbar.Offcanvas>
 
           </Container>

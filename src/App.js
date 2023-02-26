@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Attendance from './Pages/Attendance';
+import DirectMessages from './Pages/DirectMessages';
 import { auth } from "./ConfigFirebase/Firebase"
 import { onAuthStateChanged } from "firebase/auth";
 import UpdateBlog from "./Pages/UpdateBlog"
@@ -10,7 +11,7 @@ import MidMarks from './Pages/MidMarks';
 import SignUp from './Pages/SignUp';
 import Signin from './Pages/Signin';
 import CreatePost from './Pages/CreatePost';
-import Home from './Pages/Home';
+import Blogs from './Pages/Blogs';
 import SinglePost from "./Pages/SinglePost"
 import ChatSystem from './Pages/ChatSystem';
 import { Routes, Route} from "react-router-dom"
@@ -52,10 +53,12 @@ function App() {
       <br />
       <div className="container-f">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Blogs />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/SinglePost/:Docid" element={<SinglePost/>} />
           <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
+          <Route path="/DirectMessages" element={<DirectMessages/>} />
+
           <Route path="ChatSystem/Individualchat/:UserId/:UserName" element={<Individualchat/>}/>
 
 

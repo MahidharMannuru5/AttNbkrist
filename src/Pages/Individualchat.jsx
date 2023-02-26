@@ -63,7 +63,8 @@ const Individualchat = () => {
           {Messages.map((message) => (
             <div key={message.id} className={`chat-message ${message.sender === user.uid ? 'sender' : 'receiver'}`}>
               {message.NewMessage}
-              <button className='delete-button' onClick={() => deleteMessage(message.id)}><GoTrashcan /></button>
+              {  message.sender===user.uid?<button className='delete-button' onClick={() => deleteMessage(message.id)}><GoTrashcan /></button>
+:null}
             </div>
           ))}
           <div ref={messagesEndRef}></div>

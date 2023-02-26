@@ -1,130 +1,7 @@
-.chat-system-container {
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-.container-f{
-  align-items: center;
-}
-.messages-container {
-  padding: 10px;
-  border: 1px solid #ccc;
-  max-height: calc(100vh - 200px);
-  overflow: auto;
-}
 
-.message-container {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-.message-username {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.message-text {
-  margin-bottom: 5px;
-}
-
-.message-timestamp {
-  color: #999;
-  font-size: 12px;
-}
-
-.message-input-container {
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-.message-input {
-  margin-bottom: 10px;
-}
-
-.message-submit-button {
-  background-color: #007bff;
-  color: #fff;
-}
 .accountcreation{
   text-align: center;
 }
-.navbar-brand{
-  color:white!important;
-}
-.navbar-toggler-icon{
-  color:white!important;
-}
-
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.btn{
-   bottom: 0;
-}
-
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.footer{
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-}
-.fk{
-  color:black;
-}
-
-
-.container-fluid{
-  align-items: center;
-  text-align: center;
-}
-a{
-  text-decoration: none!important;
-  align-items: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif!important;
-}
-.navbar-brand{
-  margin-left:50px!important;
-}
-.offcanvas-body {
-  width: 50%!important;
-}
-
-
-@media (max-width: 540px) {
-  .offcanvas-body .nav-link {
-      color: black;
-  }
-}
-.offcanvas-end{
-  width:200px!important;
-}
-.navbar-light .navbar-nav .nav-link{
-  color:white!important;
-}
-.navbar-light .navbar-toggler {
-  color: #adb5bd!important;
-  border-color: #dee2e6!important;
-}
-.navbar-link{
-  color:white!important;
-}
-  
-
-
-
 .PostContent{
 margin:5px;
 }
@@ -134,19 +11,10 @@ margin:5px;
   border:solid 1px;
 
 }
-
-button{
-  margin:15px;
-}
-
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
 
 .btn.btn-primary{
   background-color:rgb(77, 186, 230);
