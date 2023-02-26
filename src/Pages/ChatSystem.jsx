@@ -4,7 +4,6 @@ import {getAuth} from 'firebase/auth';
 import {app,auth,db} from "../ConfigFirebase/Firebase"
 import { GoTrashcan} from 'react-icons/go';
 import {BiMessage} from "react-icons/bi"
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../Styles/chatsystem.css';
 
@@ -63,8 +62,7 @@ const ChatSystem = () => {
             <div className="message-header">
             <div className="message-username">{user && user.uid===message.userIdName ? 
           <GoTrashcan className='DeleteButton' onClick={() => {deletemessage(message.Docid)}} />
-            :<Link to={`Individualchat/${[user.uid+message.userIdName].sort().join("")}/${message.username}`}><BiMessage className="Direct"/></Link>}</div>
-
+            :<Link to={`Individualchat/${[user.uid,message.userIdName].sort().join("")}/${message.username}`}><BiMessage className="Direct"/></Link>}</div>
               <div className="message-username">{message.username}</div>
               <div className="message-time">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>
             </div>
