@@ -5,11 +5,15 @@ import { useState,useEffect } from 'react';
 import { auth } from '../ConfigFirebase/Firebase';
 import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
 import Nav from 'react-bootstrap/Nav';
+import { useNavigate } from "react-router-dom";
+
 import { Link } from 'react-router-dom';
 
 const Signin = () => {
-  const [Email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const [Email, setEmail] = useState(localStorage.getItem('Email'));
+  const [password, setPassword] = useState(localStorage.getItem('password'));
   const [UseName, setUseName] = useState("");
   useEffect(() => {
     const user = auth.currentUser;
@@ -33,8 +37,7 @@ if (user !== null) {
             setEmail(" ");
             setPassword(" ");
             console.log(email);
-
-            
+            navigate("/");
           } else {
             console.log("No user is signed in.");
           
@@ -58,16 +61,21 @@ if (user !== null) {
           </>
           <Form.Group className="mb-3 justify-content-center" controlId="formBasicEmail">
             <Form.Label>Email address{UseName}</Form.Label>
-            <Form.Control type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />
+            <Form.Control type="email" value={Email} onChange={(event) => setEmail(event.target.value)} placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password"   onChange={(event)=>{
-  setPassword(event.target.value)}}/>
+        <Form.Control type="password" placeholder="Password" value={password}  onChange={(event)=>{
+                  setPassword(event.target.value)}}/>
       </Form.Group>
+      <div   className="new"  onClick={()=>{localStorage.setItem("password",password)
+        localStorage.setItem("Email", Email);
+        ;}}>
+
+      <input type="checkbox" name="tripType"/>Remember Me</div>
           <Button variant="primary" type="submit" onClick={Login}>
             Login
           </Button>

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {MdLogout} from "react-icons/md"
@@ -56,8 +55,7 @@ const NavBar = () => {
                       <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
                       <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
                       <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>
-                      <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
-                       <Nav.Link as={Link} to={"/SignUp"}>SignUp</Nav.Link>
+                      
                        
                     </>
                    
@@ -67,7 +65,10 @@ const NavBar = () => {
                        {user ?
                           <>
                           <MdLogout onClick={SignOut}/>Logout</>
-                          :null}
+                          :
+                          <>
+                          <Nav.Link as={Link} to={"/Signin"}>SignIn</Nav.Link>
+                          </>}
                        </Nav.Link>
               </Nav>
                 </Offcanvas.Body>
