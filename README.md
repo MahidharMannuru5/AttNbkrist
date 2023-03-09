@@ -6,17 +6,17 @@ AttNbkrist is a website designed to provide a guided environment for students. I
 
 ## Table of Contents 
 
- - [Features](#)
- - [Api Reference](#)
- - [Demo](#)
-- [Run Locally](#)
-- [Contributing](#)
-- [Tech](#)
-- [Screenshot](#)
+ - [Features](#features)
+ - [Api Reference](#apireference)
+ - [Demo](#demo)
+- [Run Locally](#runlocally)
+- [Contributing](#contributing)
+- [Tech](#techstack)
+- [Screenshot](#screenshots)
 
 
 
-## Features
+## Features   <a id="features"> </a>
 
 - Group chat system: The website offers a group chat system which allows students to communicate with their peers and teachers. This is an excellent way to ask questions and discuss topics related to the course.
 - Individual chat system: In addition to the group chat system, students also have access to an individual chat system which allows them to communicate privately with their teachers. This is a great way to seek individual guidance and support.
@@ -25,7 +25,7 @@ AttNbkrist is a website designed to provide a guided environment for students. I
 - Upcoming feature: Custom mental health ML model: Attnbkrist is developing a custom mental health ML model that is designed to detect and analyze emotions in text-based conversations and provide supportive responses. This feature will benefit students who are struggling with mental health issues or feeling overwhelmed. By analyzing their conversations, the model will provide customized responses that are empathetic and supportive.
 
 
-## API Reference
+## API Reference   <a id="apireference"> </a>
 
 #### Get Attendance
 
@@ -49,12 +49,12 @@ https://att.nbkrist.co.in/attendance/Apps_ren_Dummy/getAllMidMarksAsJSONGivenRol
 
 
 
-## Demo
+## Demo   <a id="demo"> </a>
 
 https://mahidharmannuru5.github.io/AttNbkrist/#
 
 
-## Tech Stack
+## Tech Stack   <a id="techstack"> </a>
 
 **Client:** React, Redux, Bootstrap,FontAwesome
 
@@ -63,7 +63,7 @@ https://mahidharmannuru5.github.io/AttNbkrist/#
 **Backend:** Firebase, MySQL 
 
 
-## Run Locally
+## Run Locally    <a id="runlocally"> </a>
 
 Clone the project
 
@@ -91,7 +91,7 @@ Start the server
 
 
 
-## Contributing to AttNbkrist
+## Contributing to AttNbkrist    <a id="contributing"> </a>
 Thank you for your interest in contributing to AttNbkrist! This project is built using Reactjs, PHP, Firebase, Nodejs, and Express js. By contributing to this project, you agree to abide by the Code of Conduct.
 
 Getting Started
@@ -143,24 +143,24 @@ Thank you for contributing to AttNbkrist!
 
 
 ## Screenshots
+   <a id="screenshots"> </a>
 
-
-                                          `BlogSystem`
+`BlogSystem`
 
 ![Screenshot from 2023-03-08 15-45-10](https://user-images.githubusercontent.com/81514511/223692026-92ffe165-ae8f-419a-9a5e-7cfb4a318f71.png)
 
 
-                                          `Groupchat`
+`Groupchat`
 
 ![Screenshot from 2023-03-08 15-45-48](https://user-images.githubusercontent.com/81514511/223692067-fa1efae7-2423-431d-a88d-8d5222020c45.png)
 
 
-                                          `Individualchat`
+`Individualchat`
 ![Screenshot from 2023-03-08 15-46-03](https://user-images.githubusercontent.com/81514511/223692119-3de53da0-b067-469d-9d46-68a1d44c26ff.png)
 
 
 
-                                          `Attendance`
+`Attendance`
 
 ![Screenshot from 2023-03-08 15-46-31](https://user-images.githubusercontent.com/81514511/223692128-00a4498d-5a91-43ad-80d2-b13d31c6f869.png)
 
@@ -168,7 +168,7 @@ Thank you for contributing to AttNbkrist!
                                            
 
 
-                                          `MidMarks`
+`MidMarks`
 ![Screenshot from 2023-03-08 15-46-48](https://user-images.githubusercontent.com/81514511/223692155-6d97ac4e-70df-406e-a52e-dab2e276b705.png)
 
 
