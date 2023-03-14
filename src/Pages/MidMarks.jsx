@@ -4,7 +4,6 @@ import {  useState ,useEffect} from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
-import Footer from "../Components/Footer"
 const Internalmarks= [
   "subShortForm",
   "mid1",
@@ -15,7 +14,7 @@ const labs=["lab",
 "practical"]
 export default function MidMarks() {
   const result=localStorage.getItem('rollno');
-  const [rollno,setrollno]=useState(result)
+  const[rollno,setrollno]=useState(result);
   const [marks, setmarks] = useState([]);
 
   useEffect(() => {
@@ -45,15 +44,15 @@ export default function MidMarks() {
         RollNo:
       </label>
       
-<input type="text" className='titleofpost' required size={10}  OnChange={(event)=>{
-  setrollno(event.target.value.Lowercase())
-}}/>
+<input type="text" required size={10} value={rollno} onChange={(event)=>{
+  setrollno(event.target.value.toLowerCase());
+}} />
 </Card.Header>
 
 <Card.Body>
 <Card.Title><div   className="new"  onClick={()=>{localStorage.setItem("rollno",rollno);}}>
 
-      <input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
+<input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
           <Card.Text>
           <button class="btn btn-primary" onClick={marked}>MidMarks</button>
 
@@ -119,8 +118,16 @@ export default function MidMarks() {
           
       
 </div>
-<Footer/>
 
+    </div>
+    <div className='footer'>
+      <h3>Trust The Process,Time has a Reply</h3>
+    </div>
+    <div className="help">
+    <a href="https://www.hitwebcounter.com">
+<img className="counter"src="https://hitwebcounter.com/counter/counter.php?page=8007496&style=0036&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                    
+                                    
+    
     </div>
     </>
   );

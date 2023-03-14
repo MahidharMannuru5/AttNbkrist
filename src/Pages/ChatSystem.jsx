@@ -62,7 +62,7 @@ const ChatSystem = () => {
             <div className="message-header">
             <div className="message-username">{user && user.uid===message.userIdName ? 
           <GoTrashcan className='DeleteButton' onClick={() => {deletemessage(message.Docid)}} />
-            :<Link to={`Individualchat/${[user.uid,message.userIdName].sort().join("")}/${message.username}`}><BiMessage className="Direct"/></Link>}</div>
+            :<Link to={`Individualchat/${[user.uid,message.userIdName].sort().join("")}/${message.username}/${message.userIdName}`}><BiMessage className="Direct"/></Link>}</div>
               <div className="message-username">{message.username}</div>
               <div className="message-time">{message.timestamp && message.timestamp.toDate().toLocaleString()}</div>
             </div>

@@ -11,6 +11,7 @@ import MidMarks from './Pages/MidMarks';
 import SignUp from './Pages/SignUp';
 import Signin from './Pages/Signin';
 import CreatePost from './Pages/CreatePost';
+import OneonOneVideoCall from "./Pages/OneonOneVideoCall"
 import Blogs from './Pages/Blogs';
 import SinglePost from "./Pages/SinglePost"
 import ChatSystem from './Pages/ChatSystem';
@@ -59,7 +60,8 @@ function App() {
           <Route path="/UpdateBlog/:Docid" element={<UpdateBlog/>} />
           <Route path="/DirectMessages" element={<DirectMessages/>} />
 
-          <Route path="ChatSystem/Individualchat/:UserId/:UserName" element={<Individualchat/>}/>
+          <Route path="ChatSystem/Individualchat/:UserId/:UserName/:reciverId" element={<Individualchat/>}/>
+          <Route path="ChatSystem/Individualchat/:UserId/:UserName/:reciverId/OneonOneVideoCall/:reciverId" element={<OneonOneVideoCall/>}/>
 
 
           {user ?

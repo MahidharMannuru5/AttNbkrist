@@ -5,13 +5,15 @@ import {getAuth} from 'firebase/auth';
 import {app,auth,db} from "../ConfigFirebase/Firebase"
 import { GoTrashcan} from 'react-icons/go';
 import {BiMessage} from "react-icons/bi"
-import { Button } from 'react-bootstrap';
+import {BsCameraVideo} from "react-icons/bs";
+import { Button, useAccordionButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../Styles/Individual.css"
 
 const Individualchat = () => {
   const {UserId}=useParams()
   const {UserName}=useParams()
+  const{reciverId}=useParams()
   const user=auth.currentUser
   const [Messages, SetMessages] = useState([{}]);
   const [NewMessage, SetNewMessage] = useState("");
@@ -58,7 +60,7 @@ const Individualchat = () => {
   return (
     <div className='Individualmessages'>
       <div className='chat-container'>
-        <div className='chat-header'>{UserName}</div>
+        <div className='chat-header'>{UserName}  <Link to={`OneonOneVideoCall/${reciverId}`}> <BsCameraVideo /></Link></div>
         <div className='chat-messages'>
           {Messages.map((message) => (
             <div key={message.id} className={`chat-message ${message.sender === user.uid ? 'sender' : 'receiver'}`}>
