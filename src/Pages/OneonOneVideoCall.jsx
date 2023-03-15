@@ -1,147 +1,78 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-import Peer from "simple-peer";
-import { getFirestore, doc, onSnapshot, setDoc } from "firebase/firestore";
-import { app, auth, db } from "../ConfigFirebase/Firebase";
+import React, { useState, useEffect, useRef } from 'react';
+import Peer from 'peerjs';
 
-const VideoCall = ({ currentUser, otherUserId }) => {
-  const [stream, setStream] = useState(null);
+const OneonOneVideoCall = () => {
+  const [peerId, setPeerId] = useState('');
+  const [remotePeerId, setRemotePeerId] = useState('');
   const [peer, setPeer] = useState(null);
-  const [callAccepted, setCallAccepted] = useState(false);
-  const [callerSignal, setCallerSignal] = useState(null);
-  const [errorMsg, setErrorMsg] = useState("");
-  const { reciverId } = useParams();
-  const userVideo = useRef();
-  const partnerVideo = useRef();
-  const user = auth.currentUser;
-  const [isCalling, setIsCalling] = useState(false); // fix variable name
+  const [localStream, setLocalStream] = useState(null);
+  const [remoteStream, setRemoteStream] = useState(null);
+
+  const localVideoRef = useRef();
+  const remoteVideoRef = useRef();
 
   useEffect(() => {
-    // Get user media
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((stream) => {
-        setStream(stream);
-        if (userVideo.current) {
-          userVideo.current.srcObject = stream;
-        }
-      })
-      .catch((err) => {
-        setErrorMsg("Could not get media stream");
-      });
+    const newPeer = new Peer();
+    setPeer(newPeer);
 
-    // Set up peer connection
-    const peer = new Peer({
-      initiator: false,
-      trickle: false,
-      stream: stream,
+    newPeer.on('open', (id) => {
+      setPeerId(id);
     });
 
-    peer.on("signal", (data) => {
-      // Send the signal to the other peer
-
-      setDoc(doc(db, "calls", reciverId), {
-        userId: user.uid,
-        signalData: data,
-      });
+    newPeer.on('call', (call) => {
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then((stream) => {
+          setLocalStream(stream);
+          call.answer(stream);
+          call.on('stream', (remoteStream) => {
+            setRemoteStream(remoteStream);
+          });
+        })
+        .catch((error) => {
+          console.error('Error getting user media:', error);
+        });
     });
+  }, []);
 
-    peer.on("stream", (stream) => {
-      if (partnerVideo.current) {
-        partnerVideo.current.srcObject = stream;
-      }
-    });
-
-    setPeer(peer);
-
-    // Listen for incoming call
-    const unsubscribe = onSnapshot(doc(db, "calls", user.uid), (doc) => {
-      if (doc.exists() && doc.data().userId === reciverId) {
-        setCallerSignal(doc.data().signalData);
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, [reciverId, stream, user.uid]); // fix missing dependencies
-
-  // Make a call to the other user
-  const callUser = () => {
-    setIsCalling(true); // fix variable name
-    const peer = new Peer({
-      initiator: true,
-      trickle: false,
-      stream: stream,
-    });
-
-    peer.on("signal", (data) => {
-      // Send the signal to the other peer
-      setDoc(doc(db, "calls", otherUserId), {
-        userId: user.uid,
-        signalData: data,
-      });
-    });
-
-    peer.on("stream", (stream) => {
-      if (partnerVideo.current) {
-        partnerVideo.current.srcObject = stream;
-      }
-    });
-
-    setPeer(peer);
-  };
-
-  // Accept incoming call
-  const acceptCall = () => {
-    setCallAccepted(true);
-    peer.signal(callerSignal);
-    setDoc(doc(db, "calls", user.uid), {
-      userId: otherUserId,
-      accepted: true,
+  const handleCallClick = () => {
+    const call = peer.call(remotePeerId, localStream);
+    call.on('stream', (remoteStream) => {
+      setRemoteStream(remoteStream);
     });
   };
 
-  // End call
-  const endCall = () => {
-    setCallAccepted(false);
-    setCallerSignal(null);
-    peer.destroy();
-    doc(db, "calls", user.uid).delete();
-    doc(db, "calls", otherUserId).delete();
+  const handleRemotePeerIdChange = (event) => {
+    setRemotePeerId(event.target.value);
   };
+
+  useEffect(() => {
+    if (localVideoRef.current && localStream) {
+      localVideoRef.current.srcObject = localStream;
+    }
+    if (remoteVideoRef.current && remoteStream) {
+      remoteVideoRef.current.srcObject = remoteStream;
+    }
+  }, [localVideoRef, remoteVideoRef, localStream, remoteStream]);
 
   return (
     <div>
+      <h1>Video Call</h1>
+      <p>My Peer ID: {peerId}</p>
       <div>
-        <video playsInline muted ref={userVideo} autoPlay />
-        {callAccepted && <video playsInline ref={partnerVideo} autoPlay />}
+        <label htmlFor="remotePeerId">Enter Remote Peer ID:</label>
+        <input type="text" id="remotePeerId" value={remotePeerId} onChange={handleRemotePeerIdChange} />
+        <button onClick={handleCallClick}>Call</button>
       </div>
-      <h3>We are experiencing some issues come back later</h3>
-      {errorMsg && <p>{errorMsg}</p>}
-      {isCalling && (
-        <div>
-          <p>Calling {otherUserId}...</p>
-          <button onClick={() => endCall()}>End Call</button>
-        </div>
-      )}
-      {!callAccepted && callerSignal && (
-        <div>
-          <p>{otherUserId} is calling you...</p>
-          <button onClick={() => acceptCall()}>Answer Call</button>
-        </div>
-      )}
-      {!callAccepted && !callerSignal && !isCalling && (
-        <div>
-          <button onClick={() => callUser()}>Call {otherUserId}</button>
-        </div>
-      )}
-      {callAccepted && (
-        <div>
-          <button onClick={() => endCall()}>End Call</button>
-        </div>
-      )}
+      <div>
+        <h2>Local Video</h2>
+        <video ref={localVideoRef} autoPlay muted></video>
+      </div>
+      <div>
+        <h2>Remote Video</h2>
+        <video ref={remoteVideoRef} autoPlay></video>
+      </div>
     </div>
   );
-      }    
-export default VideoCall;
+};
+
+export default OneonOneVideoCall;
