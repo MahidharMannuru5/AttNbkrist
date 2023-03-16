@@ -60,6 +60,9 @@ export default function Attendance() {
 <input type="checkbox" name="tripType"/>Remember Me</div></Card.Title>
           <Card.Text>
           <button class="btn btn-primary" onClick={attendance}>Submit</button>
+          <br />
+          <br />
+
         <div class="percentage">
           <Card border="info" style={{ minwidth: '16rem' }}>
         <Card.Header>Percentage:{post && post.percent}  ({post&&post.percent_breakup})</Card.Header>
@@ -114,13 +117,12 @@ export default function Attendance() {
     <div className="help">
     <a href="https://www.hitwebcounter.com">
 <img className="counter"src="https://hitwebcounter.com/counter/counter.php?page=8007496&style=0036&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                    
-                                    
+<h3>Trust The Process,Time has a Reply</h3>
+                       
     
     </div>
     </div>
-    <div className='footer'>
-      <h3>Trust The Process,Time has a Reply</h3>
-    </div>
+
     
     </>
   );
