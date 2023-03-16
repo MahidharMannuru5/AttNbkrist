@@ -54,11 +54,7 @@ const NavBar = () => {
                       <Nav.Link as={Link} to={"/ChatSystem"}>ChatSystem</Nav.Link>
                       <Nav.Link as={Link} to={"/Attendance"}>Attendance</Nav.Link>
                       <Nav.Link as={Link} to={"/MidMarks"}>MidMarks</Nav.Link>
-                      <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>
-                      <Nav.Link as={Link} to={"/OneonOneVideoCall"}>VideoCall</Nav.Link>
-
-                      
-                       
+                      <Nav.Link as={Link} to={"/CreatePost"}>CreatePost</Nav.Link>                      
                     </>
                    
                 </Nav>
