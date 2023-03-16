@@ -1,7 +1,7 @@
 
 # AttNbkrist - A Guided Learning Environment
 
-AttNbkrist is a website designed to provide a guided environment for students. It offers a range of features including Blog system, group , individual chat systems and OneonOne Video calls, custom features to check attendance and mid marks, and now, an upcoming feature of a custom mental health ML model.
+AttNbkrist is a website designed to provide a guided environment for students. It offers a range of features including Blog system, group , individual chat systems, custom features to check attendance and mid marks, and now, an upcoming feature of a custom mental health ML model.
 
 
 ## Table of Contents 

@@ -60,7 +60,7 @@ const Individualchat = () => {
   return (
     <div className='Individualmessages'>
       <div className='chat-container'>
-        <div className='chat-header'>{UserName}  <Link to={`OneonOneVideoCall/${reciverId}`}> <BsCameraVideo /></Link></div>
+        <div className='chat-header'>{UserName} </div>
         <div className='chat-messages'>
           {Messages.map((message) => (
             <div key={message.id} className={`chat-message ${message.sender === user.uid ? 'sender' : 'receiver'}`}>
